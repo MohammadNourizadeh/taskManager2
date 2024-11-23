@@ -1,16 +1,32 @@
+@use "../../../../assets/styles/mainStyle.scss";
+
 .king {
   list-style: none;
-  font-size: 1.1em;
 
-  li {
-    padding: 10px;
+  li,
+  a {
+    padding: 20px 8px;
     height: 50px;
     display: flex;
+    justify-content: flex-start;
     gap: 20px;
+    color: mainStyle.$darkMode_text_color;
     align-items: center;
+    height: 60px;
+
+    &:hover {
+      background-color: mainStyle.$darkMode_border_color;
+      cursor: pointer;
+    }
 
     span {
       color: rgb(51, 139, 246);
     }
+  }
+
+  a {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
   }
 }

@@ -1,0 +1,19 @@
+.king {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+
+  .sideBarContainer,
+  .mainContentContainer {
+    border: 1px solid black;
+    height: 100%;
+  }
+
+  .sideBarContainer {
+    width: 20%;
+  }
+
+  .mainContentContainer {
+    width: 80%;
+  }
+}

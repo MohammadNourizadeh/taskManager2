@@ -1,0 +1,15 @@
+.king {
+  list-style: none;
+  font-size: 1.1em;
+
+  li {
+    padding: 10px;
+    height: 50px;
+    display: flex;
+    gap: 12px;
+
+    span {
+      color: rgb(51, 139, 246);
+    }
+  }
+}

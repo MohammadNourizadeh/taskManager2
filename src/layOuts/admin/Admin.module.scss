@@ -7,17 +7,28 @@
   background-color: mainStyle.$darkMode_main_bg_color;
 
   .sideBarContainer,
-  .mainContentContainer {
+  .headerAndMainContentContainer {
     height: 100%;
-    background-color: mainStyle.$darkMode_part_bg_color;
   }
 
   .sideBarContainer {
     width: 20%;
     border-right: 1px solid mainStyle.$darkMode_border_color;
+    overflow-y: auto;
+    background-color: mainStyle.$darkMode_part_bg_color;
   }
 
-  .mainContentContainer {
+  .headerAndMainContentContainer {
     width: 80%;
+
+    .headerContainer {
+      height: 247px;
+    }
+
+    .mainContentContainer {
+      background-color: mainStyle.$darkMode_part_bg_color;
+      overflow-y: auto;
+      height: calc(100% - 247px);
+    }
   }
 }

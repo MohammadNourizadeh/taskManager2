@@ -7,7 +7,12 @@ export default function Admin() {
       <div className={styles.sideBarContainer}>
         <SideBar />
       </div>
-      <div className={styles.mainContentContainer}></div>
+      <div className={styles.headerAndMainContentContainer}>
+        <div className={styles.headerContainer}></div>
+        <div className={styles.mainContentContainer}>
+          lorem*200
+        </div>
+      </div>
     </div>
   );
 }

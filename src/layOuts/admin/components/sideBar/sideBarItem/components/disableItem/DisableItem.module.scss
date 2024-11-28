@@ -1,0 +1,19 @@
+@use "../../../../../../../assets/styles/mainStyle.scss";
+
+.king {
+  padding: 20px 10px;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  color: mainStyle.$darkMode_text_color;
+  align-items: center;
+  height: 60px;
+  text-decoration: none;
+  transition: 0.05s ease-in-out;
+  opacity: 0.4;
+
+  span {
+    color: rgb(51, 139, 246);
+  }
+}

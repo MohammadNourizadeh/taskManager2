@@ -17,6 +17,7 @@ export default function SideBar() {
           iconColor={sideBarItem.iconColor ? sideBarItem.iconColor : ""}
           isLink={sideBarItem.isLink ? sideBarItem.isLink : ""}
           linkAddress={sideBarItem.linkAddress ? sideBarItem.linkAddress : ""}
+          disable={sideBarItem.disable ? sideBarItem.disable : ""}
         />
       ))}
     </ul>

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./SideBarItem.module.scss";
 import LinkItem from "./components/linkItem/LinkItem";
+import DisableItem from "./components/disableItem/DisableItem";
 
 export default function SideBarItem({
   itemName,
@@ -8,8 +9,15 @@ export default function SideBarItem({
   iconColor,
   isLink,
   linkAddress,
+  disable,
 }) {
-  return isLink ? (
+  return disable ? (
+    <DisableItem
+      iconColor={iconColor}
+      iconName={iconName}
+      itemName={itemName}
+    />
+  ) : isLink ? (
     <LinkItem
       linkAddress={linkAddress}
       iconColor={iconColor}

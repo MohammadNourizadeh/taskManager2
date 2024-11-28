@@ -9,9 +9,7 @@ export default function Admin() {
       </div>
       <div className={styles.headerAndMainContentContainer}>
         <div className={styles.headerContainer}></div>
-        <div className={styles.mainContentContainer}>
-          lorem*200
-        </div>
+        <div className={styles.mainContentContainer}></div>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ const sideBarItems = [
     },
     {
         iconName: faCog,
-        itemName: "setting",
+        itemName: "setting"
     },
 ];
 

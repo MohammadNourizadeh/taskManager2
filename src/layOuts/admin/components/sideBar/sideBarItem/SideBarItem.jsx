@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import styles from "./SideBarItem.module.scss";
 
 export default function SideBarItem({
   itemName,
@@ -10,7 +11,7 @@ export default function SideBarItem({
 }) {
   return isLink ? (
     <li>
-      <Link to={linkAddress}>
+      <Link to={linkAddress} className={styles.link}>
         <span style={{ color: iconColor }}>
           <FontAwesomeIcon icon={iconName} />
         </span>
@@ -18,7 +19,7 @@ export default function SideBarItem({
       </Link>
     </li>
   ) : (
-    <li>
+    <li className={styles.king}>
       <span style={{ color: iconColor }}>
         <FontAwesomeIcon icon={iconName} />
       </span>

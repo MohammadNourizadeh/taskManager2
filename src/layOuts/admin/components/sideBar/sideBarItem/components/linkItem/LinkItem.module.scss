@@ -1,4 +1,4 @@
-@use "../../../../../assets/styles/mainStyle.scss";
+@use "../../../../../../../assets/styles/mainStyle.scss";
 
 .king {
   padding: 20px 10px;
@@ -9,6 +9,7 @@
   color: mainStyle.$darkMode_text_color;
   align-items: center;
   height: 60px;
+  text-decoration: none;
   transition: 0.05s ease-in-out;
 
   &:hover {

@@ -1,13 +1,12 @@
 import styles from "./SideBar.module.scss";
 import SideBarItem from "./sideBarItem/SideBarItem";
 import { sideBarItems } from "./sideBarItems";
+import SideBarUsernameItem from "./sideBarUsernameItem/SideBarUsernameItem";
 
 export default function SideBar() {
   return (
     <ul className={styles.king}>
-      <li>
-        <div>user</div>
-      </li>
+      <SideBarUsernameItem />
       <hr />
       {sideBarItems.map((sideBarItem, index) => (
         <SideBarItem

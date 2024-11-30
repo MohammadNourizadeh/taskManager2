@@ -1,0 +1,20 @@
+@use "../../../../../assets/styles/mainStyle.scss";
+
+.king {
+  display: flex;
+  gap: 20px;
+  height: 83px;
+  padding: 20px 10px;
+  color: mainStyle.$darkMode_text_color;
+  align-items: center;
+  font-size: 1em;
+
+  span {
+    font-size: 2.3em;
+  }
+
+  div {
+    font-size: 1.5em;
+    text-transform: none;
+  }
+}

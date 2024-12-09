@@ -1,0 +1,11 @@
+.king {
+  display: flex;
+  align-items: flex-end;
+  width: 50%;
+  height: 100%;
+
+  .pageNameAndDateContainer {
+    padding: 20px;
+    font-size: 1.1em;
+  }
+}

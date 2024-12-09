@@ -1,0 +1,37 @@
+@use "../../../../assets/styles/mainStyle.scss";
+
+.king {
+  height: 100%;
+  display: flex;
+  color: mainStyle.$darkMode_text_color;
+
+  .leftContainer,
+  .rightContainer {
+    width: 50%;
+    height: 100%;
+  }
+
+  .leftContainer {
+    display: flex;
+    align-items: flex-end;
+
+    .pageNameAndDateContainer {
+      padding: 20px;
+      font-size: 1.1em;
+
+      .pageNameContainer {
+        font-size: 5em;
+        font-family: "Brush Script MT";
+        user-select: none;
+        margin-bottom: 10px;
+      }
+
+      .dateContainer {
+        font-size: 1.2em;
+      }
+    }
+  }
+
+  .rightContainer {
+  }
+}

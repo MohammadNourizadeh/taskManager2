@@ -21,3 +21,20 @@
     color: rgb(51, 139, 246);
   }
 }
+
+.selected {
+  padding: 20px 10px;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  background-color: mainStyle.$darkMode_border_color;
+  color: mainStyle.$darkMode_text_color;
+  align-items: center;
+  height: 60px;
+  text-decoration: none;
+
+  span {
+    color: rgb(51, 139, 246);
+  }
+}

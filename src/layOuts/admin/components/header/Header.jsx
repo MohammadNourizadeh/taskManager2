@@ -1,3 +1,5 @@
+import HeaderDate from "./components/headerDate/HeaderDate";
+import PageName from "./components/pageName/PageName";
 import styles from "./Header.module.scss";
 
 export default function Header() {
@@ -5,8 +7,8 @@ export default function Header() {
     <div className={styles.king}>
       <div className={styles.leftContainer}>
         <div className={styles.pageNameAndDateContainer}>
-          <div className={styles.pageNameContainer}>my day</div>
-          <div className={styles.dateContainer}>Monday, December 9</div>
+          <PageName />
+          <HeaderDate />
         </div>
       </div>
 

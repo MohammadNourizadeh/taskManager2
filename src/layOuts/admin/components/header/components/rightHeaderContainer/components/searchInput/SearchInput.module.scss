@@ -1,0 +1,37 @@
+@use "../../../../../../../../assets/styles/mainStyle.scss";
+
+.king {
+  position: relative;
+  color: mainStyle.$darkMode_text_color;
+
+  span {
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 10px);
+    cursor: pointer;
+    transition: 0.05s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  input {
+    color: mainStyle.$darkMode_text_color;
+    background-color: mainStyle.$darkMode_part_bg_color;
+    width: 250px;
+    height: 55px;
+    border: 2px solid mainStyle.$darkMode_border_color;
+    border-radius: 10px;
+    padding: 10px;
+    text-transform: none;
+    outline: 0;
+
+    &:focus {
+      outline: 2px solid mainStyle.$green_accepted_color;
+    }
+  }
+}

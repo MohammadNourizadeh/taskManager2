@@ -7,7 +7,6 @@ export default function HeaderDate() {
   const month = months[date.getMonth()];
   const day = days[date.getDay()];
   const dayNum = date.getDay();
-  const sec = date.getSeconds();
 
   useEffect(() => {
     const myInterval = setInterval(() => {

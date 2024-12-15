@@ -1,0 +1,82 @@
+@use "../../../../assets/styles/mainStyle.scss";
+
+.king {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.645);
+
+  form {
+    border-radius: 10px;
+    border: 1px solid mainStyle.$darkMode_border_color;
+    background-color: mainStyle.$darkMode_main_bg_color;
+    padding: 30px;
+    color: mainStyle.$darkMode_text_color;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    div {
+      input,
+      select {
+        padding: 8px;
+        color: mainStyle.$darkMode_text_color;
+        border: 1px solid mainStyle.$darkMode_border_color;
+        background-color: mainStyle.$darkMode_part_bg_color;
+        text-transform: none;
+        border-radius: 10px;
+      }
+    }
+
+    .inputContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      input {
+        width: 250px;
+      }
+    }
+
+    .selectContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      select{
+        option{
+            text-transform: none;
+        }
+      }
+    }
+
+    .addBtnContainer {
+      display: flex;
+      justify-content: center;
+
+      button {
+        width: 50%;
+        color: mainStyle.$darkMode_text_color;
+        background-color: mainStyle.$green_accepted_color;
+        text-transform: none;
+        border: 0;
+        padding: 10px;
+        border-radius: 30px;
+        font-size: 1em;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #238637d5;
+        }
+        &:active {
+          background-color: #238637c5;
+        }
+      }
+    }
+  }
+}

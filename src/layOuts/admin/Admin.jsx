@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import styles from "./Admin.module.scss";
 import Header from "./components/header/Header";
 import SideBar from "./components/sideBar/SideBar";
@@ -12,7 +13,9 @@ export default function Admin() {
         <div className={styles.headerContainer}>
           <Header />
         </div>
-        <div className={styles.mainContentContainer}></div>
+        <div className={styles.mainContentContainer}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

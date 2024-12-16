@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.645);
+  background-color: rgba(0, 0, 0, 0.680);
 
   form {
     border-radius: 10px;
@@ -20,6 +20,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    position: relative;
 
     div {
       input,
@@ -30,6 +31,10 @@
         background-color: mainStyle.$darkMode_part_bg_color;
         text-transform: none;
         border-radius: 10px;
+
+        &:focus {
+          outline: 2px solid mainStyle.$green_accepted_color;
+        }
       }
     }
 
@@ -41,6 +46,10 @@
       input {
         width: 250px;
       }
+
+      input[type="date"] {
+        cursor: pointer;
+      }
     }
 
     .selectContainer {
@@ -48,9 +57,11 @@
       align-items: center;
       justify-content: space-between;
 
-      select{
-        option{
-            text-transform: none;
+      select {
+        cursor: pointer;
+
+        option {
+          text-transform: none;
         }
       }
     }
@@ -76,6 +87,25 @@
         &:active {
           background-color: #238637c5;
         }
+      }
+    }
+
+    .closeBtnContainer {
+      border: 0;
+      background-color: #ffffff00;
+      color: mainStyle.$red_error_color;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.1s ease-in-out;
+
+      &:hover {
+        color: rgba(204, 6, 6, 0.708);
+      }
+      &:active {
+        color: rgba(204, 6, 6, 0.605);
       }
     }
   }

@@ -6,9 +6,9 @@ export default function Task({ taskName, date, isDone, isImportant }) {
   return (
     <div className={styles.king}>
       <div className={styles.checkBoxContainer}>
-        <label class={styles.myCheck}>
+        <label className={styles.myCheck}>
           <input type="checkbox" checked={isDone} />
-          <span class={styles.handle}></span>
+          <span className={styles.handle}></span>
         </label>
       </div>
       <div className={styles.taskInfo}>

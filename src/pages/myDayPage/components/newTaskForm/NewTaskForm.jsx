@@ -1,11 +1,36 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./NewTaskForm.module.scss";
 import { faMultiply } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import MainContext from "../../../../contexts/MainContext";
+import styles from "./NewTaskForm.module.scss";
 
 export default function NewTaskForm({ onClose }) {
+  // context
+  const { setIsFormOpen } = useContext(MainContext);
+
+  // func
+  const handelAdd = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const newItem = {
+      id: crypto.randomUUID(),
+      name: formData.get("taskName"),
+      date: formData.get("taskDate"),
+      done: false,
+      important: formData.get("isImportant"),
+    };
+
+    fetch("http://localhost:8000/tasks", {
+      method: "POST",
+      body: JSON.stringify(newItem),
+    });
+
+    setIsFormOpen(false);
+  };
+
   return (
     <div className={styles.king}>
-      <form>
+      <form onSubmit={handelAdd}>
         <div className={styles.inputContainer}>
           <label htmlFor="taskName">enter the task :</label>
           <input type="text" id="taskName" name="taskName" />
@@ -23,7 +48,7 @@ export default function NewTaskForm({ onClose }) {
         </div>
         <hr />
         <div className={styles.addBtnContainer}>
-          <button>add</button>
+          <button type="submit">add</button>
         </div>
         <button
           className={styles.closeBtnContainer}

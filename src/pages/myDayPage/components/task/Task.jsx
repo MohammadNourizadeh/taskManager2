@@ -15,7 +15,10 @@ export default function Task({ taskName, date, isDone, isImportant }) {
         <div className={styles.taskName}>{taskName}</div>
         <div className={styles.taskDate}>{date}</div>
       </div>
-      <div className={styles.starIcon} id={isImportant ? styles.blueStar : ""}>
+      <div
+        className={styles.starIcon}
+        id={isImportant === "yes" ? styles.blueStar : ""}
+      >
         <FontAwesomeIcon icon={faStar} />
       </div>
     </div>

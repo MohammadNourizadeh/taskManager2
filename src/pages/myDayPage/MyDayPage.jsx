@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import MainContext from "../../contexts/MainContext";
 import AddTaskBtn from "./components/addTaskBtn/AddTaskBtn";
 import NewTaskForm from "./components/newTaskForm/NewTaskForm";
 import Task from "./components/task/Task";
@@ -13,11 +14,11 @@ export const fetchData = async () => {
 };
 
 export default function MyDayPage() {
+  // context
+  const { isFormOpen, setIsFormOpen } = useContext(MainContext);
+
   // var
   const tasks = useLoaderData();
-
-  // state
-  const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <div className={styles.king}>

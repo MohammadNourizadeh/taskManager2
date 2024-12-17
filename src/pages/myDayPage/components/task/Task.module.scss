@@ -50,22 +50,28 @@
       transform: translateX(100%);
     }
   }
-}
 
-.taskInfo {
-  .taskName {
-    margin-bottom: 10px;
-    font-size: 1.1em;
+  .taskInfo {
+    user-select: none;
+
+    .taskName {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    .taskDate {
+      font-size: 0.9em;
+      color: rgba(255, 255, 255, 0.482);
+    }
   }
 
-  .taskDate {
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.482);
+  .starIcon {
+    cursor: pointer;
+    margin-left: auto;
+    color: mainStyle.$darkMode_border_color;
+    font-size: 1.3em;
   }
-}
-
-.starIcon {
-  margin-left: auto;
-  color: mainStyle.$darkMode_border_color;
-  font-size: 1.3em;
+  #blueStar {
+    color: rgb(51, 139, 246);
+  }
 }

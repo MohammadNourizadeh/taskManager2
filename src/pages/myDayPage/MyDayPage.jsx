@@ -1,16 +1,34 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import MainContext from "../../contexts/MainContext";
 import AddTaskBtn from "./components/addTaskBtn/AddTaskBtn";
 import NewTaskForm from "./components/newTaskForm/NewTaskForm";
 import Task from "./components/task/Task";
 import styles from "./MyDayPage.module.scss";
 
 export default function MyDayPage() {
+  // context
+  const { tasks, setTasks } = useContext(MainContext);
+
+  // side effect
+  useEffect(() => {
+    fetch("http://localhost:8000/tasks")
+      .then((res) => res.json())
+      .then((data) => setTasks(data));
+  }, []);
+
   // state
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <div className={styles.king}>
-      <Task />
+      {tasks.map((task) => (
+        <Task
+          taskName={task.name}
+          date={task.date}
+          isDone={task.done}
+          isImportant={task.important}
+        />
+      ))}
       <AddTaskBtn
         onPress={(val) => {
           setIsFormOpen(val);

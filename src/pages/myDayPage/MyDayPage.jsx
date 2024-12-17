@@ -1,10 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import MainContext from "../../contexts/MainContext";
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import AddTaskBtn from "./components/addTaskBtn/AddTaskBtn";
 import NewTaskForm from "./components/newTaskForm/NewTaskForm";
 import Task from "./components/task/Task";
 import styles from "./MyDayPage.module.scss";
-import { useLoaderData } from "react-router-dom";
 
 export const fetchData = async () => {
   const res = await fetch("http://localhost:8000/tasks");

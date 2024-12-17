@@ -1,9 +1,16 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 const MainContext = createContext(null);
 
 export const MainContextProvider = ({ children }) => {
-  return <MainContext.Provider value={{}}>{children}</MainContext.Provider>;
+  // state
+  const [tasks, setTasks] = useState([]);
+
+  return (
+    <MainContext.Provider value={{ tasks, setTasks }}>
+      {children}
+    </MainContext.Provider>
+  );
 };
 
 export default MainContext;

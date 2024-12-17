@@ -4,17 +4,18 @@ import AddTaskBtn from "./components/addTaskBtn/AddTaskBtn";
 import NewTaskForm from "./components/newTaskForm/NewTaskForm";
 import Task from "./components/task/Task";
 import styles from "./MyDayPage.module.scss";
+import { useLoaderData } from "react-router-dom";
+
+export const fetchData = async () => {
+  const res = await fetch("http://localhost:8000/tasks");
+  const data = res.json();
+
+  return data;
+};
 
 export default function MyDayPage() {
-  // context
-  const { tasks, setTasks } = useContext(MainContext);
-
-  // side effect
-  useEffect(() => {
-    fetch("http://localhost:8000/tasks")
-      .then((res) => res.json())
-      .then((data) => setTasks(data));
-  }, []);
+  // var
+  const tasks = useLoaderData();
 
   // state
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -27,6 +28,7 @@ export default function MyDayPage() {
           date={task.date}
           isDone={task.done}
           isImportant={task.important}
+          key={task.id}
         />
       ))}
       <AddTaskBtn

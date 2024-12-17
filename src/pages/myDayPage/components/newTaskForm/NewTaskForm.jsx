@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import MainContext from "../../../../contexts/MainContext";
 import styles from "./NewTaskForm.module.scss";
+import { toast } from "react-toastify";
 
 export default function NewTaskForm({ onClose }) {
   // context
@@ -23,6 +24,10 @@ export default function NewTaskForm({ onClose }) {
     fetch("http://localhost:8000/tasks", {
       method: "POST",
       body: JSON.stringify(newItem),
+    }).then((res) => {
+      if (res.ok) {
+        toast.success("added");
+      }
     });
 
     setIsFormOpen(false);

@@ -21,10 +21,11 @@ export default function MyDayPage() {
     <div className={styles.king}>
       {tasks.map((task) => (
         <Task
-          taskName={task.name}
-          date={task.date}
-          isDone={task.done}
-          isImportant={task.important}
+          task={task}
+          // taskName={task.name}
+          // date={task.date}
+          // isDone={task.done}
+          // isImportant={task.important}
           key={task.id}
         />
       ))}

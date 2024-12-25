@@ -72,7 +72,6 @@
     top: 0px;
     right: 25px;
     position: absolute;
-    font-size: 1.1em;
   }
 
   .starIcon,
@@ -86,6 +85,8 @@
     border: 3px solid mainStyle.$darkMode_border_color;
     border-top: none;
     transition: 0.2s ease-in-out;
+    background-color: #ffffff00;
+    font-size: 1em;
 
     &:hover {
       height: 35px;

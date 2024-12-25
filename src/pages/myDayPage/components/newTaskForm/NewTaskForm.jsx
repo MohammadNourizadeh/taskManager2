@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 export default function NewTaskForm({ onClose }) {
   // context
-  const { setIsFormOpen } = useContext(MainContext);
+  const { setTasks, setIsFormOpen } = useContext(MainContext);
 
   // func
   const handelAdd = (e) => {
@@ -27,6 +27,7 @@ export default function NewTaskForm({ onClose }) {
     }).then((res) => {
       if (res.ok) {
         toast.success("added");
+        setTasks((prev) => [...prev, newItem]);
       }
     });
 

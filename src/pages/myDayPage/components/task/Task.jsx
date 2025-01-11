@@ -23,8 +23,8 @@ export default function Task({ task }) {
   return (
     <div className={styles.king}>
       <div className={styles.checkBoxContainer}>
-        <label className={styles.myCheck}>
-          <input type="checkbox" checked={task.done} />
+        <label className={styles.myCheck} htmlFor="isDone">
+          <input type="checkbox" checked={task.done} id="isDone" />
           <span className={styles.handle}></span>
         </label>
       </div>

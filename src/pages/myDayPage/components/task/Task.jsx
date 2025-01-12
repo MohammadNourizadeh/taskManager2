@@ -20,11 +20,49 @@ export default function Task({ task }) {
     });
   };
 
+  const handleIsDone = () => {
+    fetch(`http://localhost:8000/tasks/${task.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ done: !task.done }),
+    }).then((res) => {
+      if (res.ok) {
+        const itemIndex = tasks.findIndex((item) => item.id === task.id);
+        const temp = [...tasks];
+        const changedItem = temp[itemIndex];
+        changedItem.done = !task.done;
+        temp[itemIndex] = changedItem;
+        setTasks(temp);
+      }
+    });
+  };
+
+  const handleIsImportant = () => {
+    const isTaskImportant = task.important === "no" ? "yes" : "no";
+    fetch(`http://localhost:8000/tasks/${task.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ important: isTaskImportant }),
+    }).then((res) => {
+      if (res.ok) {
+        const itemIndex = tasks.findIndex((item) => item.id === task.id);
+        const temp = [...tasks];
+        const changedItem = temp[itemIndex];
+        changedItem.important = isTaskImportant;
+        temp[itemIndex] = changedItem;
+        setTasks(temp);
+      }
+    });
+  };
+
   return (
     <div className={styles.king}>
       <div className={styles.checkBoxContainer}>
         <label className={styles.myCheck} htmlFor="isDone">
-          <input type="checkbox" checked={task.done} id="isDone" />
+          <input
+            type="checkbox"
+            checked={task.done}
+            id="isDone"
+            onClick={handleIsDone}
+          />
           <span className={styles.handle}></span>
         </label>
       </div>
@@ -36,6 +74,7 @@ export default function Task({ task }) {
         <button
           className={styles.starIcon}
           id={task.important === "yes" ? styles.blueStar : ""}
+          onClick={handleIsImportant}
         >
           <FontAwesomeIcon icon={faStar} />
         </button>

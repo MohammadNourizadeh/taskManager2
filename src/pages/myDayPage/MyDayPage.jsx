@@ -15,7 +15,7 @@ export default function MyDayPage() {
     fetch("http://localhost:8000/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data));
-  }, [tasks]);
+  }, []);
 
   return (
     <div className={styles.king}>

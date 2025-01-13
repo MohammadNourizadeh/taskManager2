@@ -5,8 +5,7 @@
       "name": "washing parking",
       "date": "2024-12-27",
       "done": false,
-      "important": "no"
+      "important": "yes"
     }
-  ],
-  "importantTasks": []
+  ]
 }

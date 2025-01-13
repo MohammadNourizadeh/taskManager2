@@ -51,16 +51,6 @@ export default function Task({ task }) {
         setTasks(temp);
       }
     });
-    if (isTaskImportant === "yes") {
-      fetch("http://localhost:8000/importantTasks", {
-        method: "POST",
-        body: JSON.stringify(task),
-      });
-    } else {
-      fetch(`http://localhost:8000/importantTasks/${task.id}`, {
-        method: "DELETE",
-      });
-    }
   };
 
   return (

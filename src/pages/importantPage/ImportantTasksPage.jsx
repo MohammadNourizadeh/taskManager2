@@ -1,11 +1,21 @@
-import { useContext } from "react";
-import MainContext from "../../contexts/MainContext";
+import { useContext, useEffect } from "react";
 import Task from "../../components/task/Task";
 import styles from "./ImportantTasksPage.module.scss";
+import MainContext from "../../contexts/MainContext";
 
 export default function ImportantTasksPage() {
   // context
-  const { tasks } = useContext(MainContext);
+  const { tasks, setTasks } = useContext(MainContext);
+
+  // side effect
+  useEffect(() => {
+    fetch("http://localhost:8000/tasks")
+      .then((res) => res.json())
+      .then((data) => {
+        const importantTasks = data.filter((item) => item.important === "yes");
+        setTasks(importantTasks);
+      });
+  }, []);
 
   return (
     <div className={styles.king}>

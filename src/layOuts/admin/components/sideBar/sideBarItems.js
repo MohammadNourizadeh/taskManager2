@@ -11,8 +11,8 @@ const sideBarItems = [
         iconName: faStar,
         itemName: "important",
         isLink: true,
-        linkAddress: '/',
-        disable: true
+        linkAddress: "/admin/important",
+        disable: false
     },
     {
         iconName: faCalendarAlt,

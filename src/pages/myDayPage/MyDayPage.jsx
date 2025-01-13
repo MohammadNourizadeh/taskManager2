@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import MainContext from "../../contexts/MainContext";
 import AddTaskBtn from "./components/addTaskBtn/AddTaskBtn";
 import NewTaskForm from "./components/newTaskForm/NewTaskForm";
-import Task from "./components/task/Task";
+import Task from "../../components/task/Task";
 import styles from "./MyDayPage.module.scss";
 
 export default function MyDayPage() {

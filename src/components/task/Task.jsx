@@ -1,7 +1,7 @@
 import { faMultiply, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
-import MainContext from "../../../../contexts/MainContext";
+import MainContext from "../../contexts/MainContext";
 import styles from "./Task.module.scss";
 
 export default function Task({ task }) {
@@ -51,6 +51,16 @@ export default function Task({ task }) {
         setTasks(temp);
       }
     });
+    if (isTaskImportant === "yes") {
+      fetch("http://localhost:8000/importantTasks", {
+        method: "POST",
+        body: JSON.stringify(task),
+      });
+    } else {
+      fetch(`http://localhost:8000/importantTasks/${task.id}`, {
+        method: "DELETE",
+      });
+    }
   };
 
   return (

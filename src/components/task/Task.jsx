@@ -61,7 +61,7 @@ export default function Task({ task }) {
             type="checkbox"
             checked={task.done}
             id="isDone"
-            onClick={handleIsDone}
+            onChange={handleIsDone}
           />
           <span className={styles.handle}></span>
         </label>

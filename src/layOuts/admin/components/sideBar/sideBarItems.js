@@ -5,7 +5,8 @@ const sideBarItems = [
         iconName: faSun,
         itemName: "my day",
         isLink: true,
-        linkAddress: '/'
+        linkAddress: '/',
+        disable: false
     },
     {
         iconName: faStar,

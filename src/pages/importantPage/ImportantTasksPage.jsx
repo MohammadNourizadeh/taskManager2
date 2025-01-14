@@ -19,7 +19,7 @@ export default function ImportantTasksPage() {
         const importantTasks = data.filter((item) => item.important === "yes");
         setImportantTasksList(importantTasks);
       });
-  }, []);
+  }, [tasks]);
 
   return (
     <>

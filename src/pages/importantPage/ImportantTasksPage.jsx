@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-import Task from "../../components/task/Task";
-import styles from "./ImportantTasksPage.module.scss";
-import MainContext from "../../contexts/MainContext";
 import EmptyPageText from "../../components/emptyPageText/EmptyPageText";
+import Task from "../../components/task/Task";
+import MainContext from "../../contexts/MainContext";
+import styles from "./ImportantTasksPage.module.scss";
 
 export default function ImportantTasksPage() {
-  // context
-  const { tasks } = useContext(MainContext);
-
   // state
   const [importantTasksList, setImportantTasksList] = useState([]);
+
+  // context
+  const { tasks, setTasks } = useContext(MainContext);
 
   // side effect
   useEffect(() => {
@@ -23,12 +23,19 @@ export default function ImportantTasksPage() {
 
   return (
     <>
-      {importantTasksList.length > 0 ? (
+      {importantTasksList.length !== 0 ? (
         <div className={styles.king}>
           {importantTasksList.map((task) => {
-            if (task.important === "yes") {
-              return <Task task={task} key={task.id} />;
-            }
+            return (
+              <Task
+                task={task}
+                tasks={importantTasksList}
+                onSetNewList={(val) => {
+                  setTasks(val);
+                }}
+                key={task.id}
+              />
+            );
           })}
         </div>
       ) : (

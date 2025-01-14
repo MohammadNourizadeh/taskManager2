@@ -1,13 +1,8 @@
 import { faMultiply, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext } from "react";
-import MainContext from "../../contexts/MainContext";
 import styles from "./Task.module.scss";
 
-export default function Task({ task }) {
-  // context
-  const { tasks, setTasks } = useContext(MainContext);
-
+export default function Task({ tasks, task, onSetNewList }) {
   // func
   const handleRemoveTask = () => {
     fetch(`http://localhost:8000/tasks/${task.id}`, {
@@ -15,7 +10,7 @@ export default function Task({ task }) {
     }).then((res) => {
       if (res.ok) {
         const temp = tasks.filter((item) => item.id !== task.id);
-        setTasks(temp);
+        onSetNewList(temp);
       }
     });
   };
@@ -31,7 +26,7 @@ export default function Task({ task }) {
         const changedItem = temp[itemIndex];
         changedItem.done = !task.done;
         temp[itemIndex] = changedItem;
-        setTasks(temp);
+        onSetNewList(temp);
       }
     });
   };
@@ -48,7 +43,7 @@ export default function Task({ task }) {
         const changedItem = temp[itemIndex];
         changedItem.important = isTaskImportant;
         temp[itemIndex] = changedItem;
-        setTasks(temp);
+        onSetNewList(temp);
       }
     });
   };

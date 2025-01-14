@@ -21,7 +21,11 @@ export default function MyDayPage() {
     <div className={styles.king}>
       {tasks.map((task) => (
         <Task
+          tasks={tasks}
           task={task}
+          onSetNewList={(val) => {
+            setTasks(val);
+          }}
           // taskName={task.name}
           // date={task.date}
           // isDone={task.done}

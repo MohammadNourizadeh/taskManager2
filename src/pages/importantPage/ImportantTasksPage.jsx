@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import Task from "../../components/task/Task";
 import styles from "./ImportantTasksPage.module.scss";
 import MainContext from "../../contexts/MainContext";
+import EmptyPageText from "../../components/emptyPageText/EmptyPageText";
 
 export default function ImportantTasksPage() {
   // context
@@ -17,13 +18,21 @@ export default function ImportantTasksPage() {
       });
   }, []);
 
+  console.log(tasks.length);
+
   return (
-    <div className={styles.king}>
-      {tasks.map((task) => {
-        if (task.important === "yes") {
-          return <Task task={task} key={task.id} />;
-        }
-      })}
-    </div>
+    <>
+      {tasks.length > 0 ? (
+        <div className={styles.king}>
+          {tasks.map((task) => {
+            if (task.important === "yes") {
+              return <Task task={task} key={task.id} />;
+            }
+          })}
+        </div>
+      ) : (
+        <EmptyPageText text={"starred task"} />
+      )}
+    </>
   );
 }

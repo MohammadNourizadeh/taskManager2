@@ -35,8 +35,8 @@ const sideBarItems = [
         iconName: faTasks,
         itemName: "checked",
         isLink: true,
-        linkAddress: '/',
-        disable: true
+        linkAddress: '/admin/checked',
+        disable: false
     },
     {
         iconName: faCog,

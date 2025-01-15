@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./SideBarItem.module.scss";
-import LinkItem from "./components/linkItem/LinkItem";
 import DisableItem from "./components/disableItem/DisableItem";
-import { useState } from "react";
+import LinkItem from "./components/linkItem/LinkItem";
+import { useContext } from "react";
+import MainContext from "../../../../../contexts/MainContext";
 
 export default function SideBarItem({
   itemName,
@@ -12,9 +13,9 @@ export default function SideBarItem({
   linkAddress,
   disable,
 }) {
-  // state
-  const [selectedItem, setSelectedItem] = useState("my day");
-
+  // context
+  const { selectedItem, setSelectedItem } = useContext(MainContext);
+  
   return disable ? (
     <DisableItem
       iconColor={iconColor}

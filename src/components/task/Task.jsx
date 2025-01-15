@@ -1,6 +1,6 @@
 import { faMultiply, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext } from "react";
+import { useContext, useId } from "react";
 import MainContext from "../../contexts/MainContext";
 import styles from "./Task.module.scss";
 
@@ -53,14 +53,17 @@ export default function Task({ tasks, task, onSetNewList }) {
     });
   };
 
+  // var
+  const checkboxId = useId();
+
   return (
     <div className={styles.king}>
       <div className={styles.checkBoxContainer}>
-        <label className={styles.myCheck} htmlFor="isDone">
+        <label className={styles.myCheck} htmlFor={checkboxId}>
           <input
             type="checkbox"
             checked={task.done}
-            id="isDone"
+            id={checkboxId}
             onChange={handleIsDone}
           />
           <span className={styles.handle}></span>

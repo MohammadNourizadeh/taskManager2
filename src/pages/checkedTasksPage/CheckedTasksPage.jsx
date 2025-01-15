@@ -1,13 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import Task from "../../components/task/Task";
-import MainContext from "../../contexts/MainContext";
-import styles from "./CheckedTasksPage.module.scss";
+import { useEffect, useState } from "react";
 import EmptyPageText from "../../components/emptyPageText/EmptyPageText";
+import Task from "../../components/task/Task";
+import styles from "./CheckedTasksPage.module.scss";
 
 export default function CheckedTasksPage() {
-  // context
-  const { tasks, setTasks } = useContext(MainContext);
-
   // state
   const [checkedTasksList, setCheckedTasksList] = useState([]);
 
@@ -19,7 +15,7 @@ export default function CheckedTasksPage() {
         const checkedTasks = data.filter((item) => item.done === true);
         setCheckedTasksList(checkedTasks);
       });
-  }, [tasks]);
+  }, []);
 
   return (
     <>
@@ -28,9 +24,9 @@ export default function CheckedTasksPage() {
           {checkedTasksList.map((task) => (
             <Task
               task={task}
-              tasks={tasks}
+              tasks={checkedTasksList}
               onSetNewList={(val) => {
-                setTasks(val);
+                setCheckedTasksList(val);
               }}
               key={task.id}
             />

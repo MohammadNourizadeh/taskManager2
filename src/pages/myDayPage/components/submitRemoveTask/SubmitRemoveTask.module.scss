@@ -1,0 +1,64 @@
+@use "../../../../assets/styles/mainStyle.scss";
+
+.king {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.68);
+
+  .container {
+    border-radius: 10px;
+    border: 1px solid mainStyle.$darkMode_border_color;
+    background-color: mainStyle.$darkMode_main_bg_color;
+    padding: 30px;
+    color: mainStyle.$darkMode_text_color;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+
+    .btnsContainer {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+
+      button {
+        width: 100px;
+        color: mainStyle.$darkMode_text_color;
+        text-transform: none;
+        border: 0;
+        padding: 5px;
+        border-radius: 30px;
+        font-size: 1em;
+        cursor: pointer;
+      }
+
+      #yesBtn {
+        background-color: mainStyle.$green_accepted_color;
+
+        &:hover {
+          background-color: #238637d5;
+        }
+        &:active {
+          background-color: #238637c5;
+        }
+      }
+
+      #noBtn {
+        background-color: mainStyle.$red_error_color;
+
+        &:hover {
+          background-color: rgba(204, 6, 6, 0.777);
+        }
+        &:active {
+          background-color: rgba(204, 6, 6, 0.7);
+        }
+      }
+    }
+  }
+}

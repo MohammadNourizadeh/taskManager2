@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import Admin from "./layOuts/admin/Admin";
+import ImportantTasksPage from "./pages/importantTasksPage/ImportantTasksPage";
 import MyDayPage from "./pages/myDayPage/MyDayPage";
-import ImportantTasksPage from "./pages/importantPage/ImportantTasksPage";
 
 const routes = [
   {
@@ -25,3 +25,4 @@ const routes = [
 ];
 
 export { routes };
+

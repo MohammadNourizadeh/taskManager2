@@ -1,8 +1,13 @@
 import { faMultiply, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import MainContext from "../../contexts/MainContext";
 import styles from "./Task.module.scss";
 
 export default function Task({ tasks, task, onSetNewList }) {
+  // context
+  const { selectedItem } = useContext(MainContext);
+
   // func
   const handleRemoveTask = () => {
     fetch(`http://localhost:8000/tasks/${task.id}`, {
@@ -73,9 +78,11 @@ export default function Task({ tasks, task, onSetNewList }) {
         >
           <FontAwesomeIcon icon={faStar} />
         </button>
-        <button className={styles.removeIcon} onClick={handleRemoveTask}>
-          <FontAwesomeIcon icon={faMultiply} />
-        </button>
+        {selectedItem === "my day" && (
+          <button className={styles.removeIcon} onClick={handleRemoveTask}>
+            <FontAwesomeIcon icon={faMultiply} />
+          </button>
+        )}
       </div>
     </div>
   );

@@ -7,15 +7,15 @@ import NewTaskForm from "./components/newTaskForm/NewTaskForm";
 
 export default function MyDayPage() {
   // context
-  const { tasks, setTasks, isFormOpen, setIsFormOpen } =
+  const { tasks, setTasks, isFormOpen, setIsFormOpen, searchInputVal } =
     useContext(MainContext);
 
   // side effect
   useEffect(() => {
-    fetch("http://localhost:8000/tasks")
+    fetch(`http://localhost:8000/tasks/?name=${searchInputVal}`)
       .then((res) => res.json())
       .then((data) => setTasks(data));
-  }, []);
+  }, [searchInputVal]);
 
   return (
     <div className={styles.king}>

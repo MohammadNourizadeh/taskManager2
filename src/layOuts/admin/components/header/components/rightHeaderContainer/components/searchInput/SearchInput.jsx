@@ -14,8 +14,7 @@ export default function SearchInput() {
   // func
   const handleSearch = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    setSearchInputVal(formData.get("searchedText"));
+    setSearchInputVal(inputVal);
     setInputVal("");
   };
 

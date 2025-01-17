@@ -58,7 +58,10 @@ export default function Task({ tasks, task, onSetNewList }) {
 
   return (
     <div className={styles.king}>
-      <div className={styles.checkBoxContainer}>
+      <div
+        className={styles.checkBoxContainer}
+        title={task.done ? "uncheck the task" : "check the task"}
+      >
         <label className={styles.myCheck} htmlFor={checkboxId}>
           <input
             type="checkbox"
@@ -75,6 +78,11 @@ export default function Task({ tasks, task, onSetNewList }) {
       </div>
       <div className={styles.starAndRemoveBtnIcon}>
         <button
+          title={
+            task.important === "no"
+              ? "make the task important"
+              : "check the task unimportant"
+          }
           className={styles.starIcon}
           id={task.important === "yes" ? styles.blueStar : ""}
           onClick={handleIsImportant}
@@ -82,7 +90,11 @@ export default function Task({ tasks, task, onSetNewList }) {
           <FontAwesomeIcon icon={faStar} />
         </button>
         {selectedItem === "my day" && (
-          <button className={styles.removeIcon} onClick={handleRemoveTask}>
+          <button
+            title="remove task"
+            className={styles.removeIcon}
+            onClick={handleRemoveTask}
+          >
             <FontAwesomeIcon icon={faMultiply} />
           </button>
         )}

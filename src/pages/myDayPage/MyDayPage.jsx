@@ -1,4 +1,6 @@
+import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useEffect } from "react";
+import EmptyPageText from "../../components/emptyPageText/EmptyPageText";
 import Task from "../../components/task/Task";
 import MainContext from "../../contexts/MainContext";
 import styles from "./MyDayPage.module.scss";
@@ -19,20 +21,29 @@ export default function MyDayPage() {
 
   return (
     <div className={styles.king}>
-      {tasks.map((task) => (
-        <Task
-          tasks={tasks}
-          task={task}
-          onSetNewList={(val) => {
-            setTasks(val);
-          }}
-          // taskName={task.name}
-          // date={task.date}
-          // isDone={task.done}
-          // isImportant={task.important}
-          key={task.id}
-        />
-      ))}
+      {searchInputVal !== "" && tasks.length === 0 ? (
+        <div className={styles.searchResultContainer}>
+          <EmptyPageText
+            text={`your search - ${searchInputVal} - did not match any tasks`}
+            icon={faXmarkCircle}
+          />
+        </div>
+      ) : (
+        tasks.map((task) => (
+          <Task
+            tasks={tasks}
+            task={task}
+            onSetNewList={(val) => {
+              setTasks(val);
+            }}
+            // taskName={task.name}
+            // date={task.date}
+            // isDone={task.done}
+            // isImportant={task.important}
+            key={task.id}
+          />
+        ))
+      )}
       <AddTaskBtn
         onPress={(val) => {
           setIsFormOpen(val);

@@ -23,32 +23,30 @@ export default function MyDayPage() {
       {searchInputVal !== "" && tasks.length === 0 ? (
         <FailureSearchText searchedText={searchInputVal} />
       ) : (
-        tasks.map((task) => (
-          <Task
-            tasks={tasks}
-            task={task}
-            onSetNewList={(val) => {
-              setTasks(val);
+        <>
+          {tasks.map((task) => (
+            <Task
+              tasks={tasks}
+              task={task}
+              onSetNewList={(val) => {
+                setTasks(val);
+              }}
+              key={task.id}
+            />
+          ))}
+          <AddTaskBtn
+            onPress={(val) => {
+              setIsFormOpen(val);
             }}
-            // taskName={task.name}
-            // date={task.date}
-            // isDone={task.done}
-            // isImportant={task.important}
-            key={task.id}
           />
-        ))
-      )}
-      <AddTaskBtn
-        onPress={(val) => {
-          setIsFormOpen(val);
-        }}
-      />
-      {isFormOpen && (
-        <NewTaskForm
-          onClose={(val) => {
-            setIsFormOpen(val);
-          }}
-        />
+          {isFormOpen && (
+            <NewTaskForm
+              onClose={(val) => {
+                setIsFormOpen(val);
+              }}
+            />
+          )}
+        </>
       )}
     </div>
   );

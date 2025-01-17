@@ -1,3 +1,5 @@
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./FailureSearchText.module.scss";
 
 export default function FailureSearchText({ searchedText }) {
@@ -14,6 +16,9 @@ export default function FailureSearchText({ searchedText }) {
           <li>Try different keywords.</li>
           <li>Try more general keywords.</li>
         </ul>
+      </div>
+      <div className={styles.iconContainer}>
+        <FontAwesomeIcon icon={faExclamationTriangle} />
       </div>
     </div>
   );

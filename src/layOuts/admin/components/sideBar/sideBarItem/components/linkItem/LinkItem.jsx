@@ -9,21 +9,28 @@ export default function LinkItem({
   itemName,
   selectedItem,
   onSelect,
+  pageItemsCount,
 }) {
   return (
     <li
+      className={styles.king}
       onClick={() => {
         onSelect(itemName);
       }}
     >
       <Link
         to={linkAddress}
-        className={selectedItem === itemName ? styles.selected : styles.king}
+        className={
+          selectedItem === itemName ? styles.selected : styles.unSelected
+        }
       >
-        <span style={{ color: iconColor }}>
+        <span className={styles.iconContainer} style={{ color: iconColor }}>
           <FontAwesomeIcon icon={iconName} />
         </span>
-        {itemName}
+        <span>{itemName}</span>
+        {pageItemsCount > 0 && (
+          <span className={styles.numContainer}>{pageItemsCount}</span>
+        )}
       </Link>
     </li>
   );

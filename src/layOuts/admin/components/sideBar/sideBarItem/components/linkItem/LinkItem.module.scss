@@ -1,40 +1,54 @@
 @use "../../../../../../../assets/styles/mainStyle.scss";
 
 .king {
-  padding: 20px 10px;
-  height: 50px;
-  display: flex;
-  justify-content: flex-start;
-  gap: 20px;
-  color: mainStyle.$darkMode_text_color;
-  align-items: center;
-  height: 60px;
-  text-decoration: none;
-  transition: 0.05s ease-in-out;
+  .unSelected {
+    padding: 20px 10px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    color: mainStyle.$darkMode_text_color;
+    align-items: center;
+    height: 60px;
+    text-decoration: none;
+    transition: 0.05s ease-in-out;
 
-  &:hover {
+    &:hover {
+      background-color: mainStyle.$darkMode_border_color;
+      cursor: pointer;
+    }
+
+    .iconContainer {
+      color: rgb(51, 139, 246);
+    }
+
+    .numContainer {
+      margin-left: auto;
+      font-size: .8em;
+      color: gray;
+    }
+  }
+
+  .selected {
+    padding: 20px 10px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
     background-color: mainStyle.$darkMode_border_color;
-    cursor: pointer;
-  }
+    color: mainStyle.$darkMode_text_color;
+    align-items: center;
+    height: 60px;
+    text-decoration: none;
 
-  span {
-    color: rgb(51, 139, 246);
-  }
-}
+    .iconContainer {
+      color: rgb(51, 139, 246);
+    }
 
-.selected {
-  padding: 20px 10px;
-  height: 50px;
-  display: flex;
-  justify-content: flex-start;
-  gap: 20px;
-  background-color: mainStyle.$darkMode_border_color;
-  color: mainStyle.$darkMode_text_color;
-  align-items: center;
-  height: 60px;
-  text-decoration: none;
-
-  span {
-    color: rgb(51, 139, 246);
+    .numContainer {
+      color: gray;
+      margin-left: auto;
+      font-size: .8em;
+    }
   }
 }

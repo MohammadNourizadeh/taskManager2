@@ -9,7 +9,6 @@ export default function LinkItem({
   itemName,
   selectedItem,
   onSelect,
-  pageItemsCount,
 }) {
   return (
     <li
@@ -28,9 +27,6 @@ export default function LinkItem({
           <FontAwesomeIcon icon={iconName} />
         </span>
         <span>{itemName}</span>
-        {pageItemsCount > 0 && (
-          <span className={styles.numContainer}>{pageItemsCount}</span>
-        )}
       </Link>
     </li>
   );

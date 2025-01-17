@@ -1,0 +1,25 @@
+@use "../../assets/styles/mainStyle.scss";
+
+.king {
+  width: 100%;
+  overflow: auto;
+  color: mainStyle.$darkMode_text_color;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0px 50px;
+
+  .messageContainer {
+    .inputText {
+      text-transform: none;
+      color: rgb(51, 139, 246);
+    }
+  }
+
+  .suggestionsContainer {
+    ul {
+      margin-top: 10px;
+      list-style: inside;
+    }
+  }
+}

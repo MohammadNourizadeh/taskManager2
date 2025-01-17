@@ -33,7 +33,7 @@ export default function CheckedTasksPage() {
           ))}
         </div>
       ) : (
-        <EmptyPageText text={"checked task"} />
+        <EmptyPageText text={"no checked task"} />
       )}
     </>
   );

@@ -1,3 +1,4 @@
+import { faSadTear } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import EmptyPageText from "../../components/emptyPageText/EmptyPageText";
 import Task from "../../components/task/Task";
@@ -35,7 +36,7 @@ export default function ImportantTasksPage() {
           })}
         </div>
       ) : (
-        <EmptyPageText text={"starred task"} />
+        <EmptyPageText text={"no starred task"} />
       )}
     </>
   );

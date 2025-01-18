@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SettingDropDown from "./components/settingDropDown/SettingDropDown";
 import styles from "./SettingItem.module.scss";
+import SettingForm from "./components/settingDropDown/SettingForm";
 
 export default function SettingItem({
   iconName,
@@ -23,7 +23,11 @@ export default function SettingItem({
         </span>
         {itemName}
       </li>
-      {selectedItem === itemName && <SettingDropDown />}
+      {selectedItem === itemName && (
+        <li>
+          <SettingForm />
+        </li>
+      )}
     </>
   );
 }

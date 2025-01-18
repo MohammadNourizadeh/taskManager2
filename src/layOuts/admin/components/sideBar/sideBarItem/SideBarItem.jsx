@@ -1,9 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import MainContext from "../../../../../contexts/MainContext";
-import styles from "./SideBarItem.module.scss";
 import DisableItem from "./components/disableItem/DisableItem";
 import LinkItem from "./components/linkItem/LinkItem";
+import SettingItem from "./components/settingItem/SettingItem";
 
 export default function SideBarItem({
   itemName,
@@ -34,11 +33,6 @@ export default function SideBarItem({
       }}
     />
   ) : (
-    <li className={styles.king}>
-      <span style={{ color: iconColor }}>
-        <FontAwesomeIcon icon={iconName} />
-      </span>
-      {itemName}
-    </li>
+    <SettingItem iconName={iconName} itemName={itemName} />
   );
 }

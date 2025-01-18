@@ -41,7 +41,8 @@ const sideBarItems = [
     {
         iconName: faCog,
         itemName: "setting",
-        disable: true
+        isLink: false,
+        disable: false,
     },
 ];
 

@@ -1,9 +1,10 @@
 @use "../../../../../../../../../assets/styles/mainStyle.scss";
 
 .king {
+  background-color: mainStyle.$darkMode_border_color;
+
   .settingOptionsList {
     list-style: none;
-    background-color: mainStyle.$darkMode_border_color;
 
     li {
       padding: 20px 25px;
@@ -18,6 +19,21 @@
         width: 20px;
       }
 
+      .dropDownUsernameContainer {
+        input {
+          padding: 5px;
+          width: 90%;
+          border: 0;
+          color: mainStyle.$darkMode_text_color;
+          border-radius: 5px;
+          background-color: mainStyle.$darkMode_part_bg_color;
+
+          &:focus {
+            outline: 2px solid mainStyle.$green_accepted_color;
+          }
+        }
+      }
+
       .dropDownBtnContainer {
         margin-left: auto;
 
@@ -30,15 +46,51 @@
           border-radius: 5px;
           padding: 5px;
           color: mainStyle.$darkMode_text_color;
-          background-color: mainStyle.$green_accepted_color;
+          background-color: rgb(51, 139, 246);
 
           &:hover {
-            background-color: #238637d5;
+            background-color: rgb(51, 139, 246, 0.835);
           }
           &:active {
-            background-color: #238637c5;
+            background-color: rgb(51, 139, 246, 0.773);
           }
         }
+      }
+    }
+  }
+
+  .settingFormBtns {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+
+    button {
+      cursor: pointer;
+      width: 45%;
+      border: 0;
+      border-radius: 5px;
+      padding: 5px;
+      color: mainStyle.$darkMode_text_color;
+    }
+
+    .saveBtn {
+      background-color: mainStyle.$green_accepted_color;
+      &:hover {
+        background-color: rgba(35, 134, 55, 0.835);
+      }
+      &:active {
+        background-color: rgba(35, 134, 55, 0.773);
+      }
+    }
+
+    .resetBtn {
+      background-color: mainStyle.$red_error_color;
+      &:hover {
+        background-color: rgb(204, 6, 6, 0.835);
+      }
+      &:active {
+        background-color: rgb(204, 6, 6, 0.773);
       }
     }
   }

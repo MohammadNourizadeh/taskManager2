@@ -1,4 +1,8 @@
 {
+  "setting": {
+    "username": "username",
+    "theme": "dark"
+  },
   "tasks": [
     {
       "id": "64dd8b2e-10d6-43a1-a385-6da313bfba14",

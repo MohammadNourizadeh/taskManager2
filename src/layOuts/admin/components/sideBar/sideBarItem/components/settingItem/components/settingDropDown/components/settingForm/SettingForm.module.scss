@@ -1,0 +1,45 @@
+@use "../../../../../../../../../../../assets/styles/mainStyle.scss";
+
+.king {
+  .settingOptionsList {
+    list-style: none;
+    background-color: mainStyle.$darkMode_border_color;
+
+    li {
+      padding: 20px 25px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      color: mainStyle.$darkMode_text_color;
+      height: 60px;
+
+      .dropDownIconContainer {
+        margin-right: 20px;
+        width: 20px;
+      }
+
+      .dropDownBtnContainer {
+        margin-left: auto;
+
+        button,
+        select {
+          cursor: pointer;
+          width: 65px;
+          text-align: center;
+          border: 0;
+          border-radius: 5px;
+          padding: 5px;
+          color: mainStyle.$darkMode_text_color;
+          background-color: mainStyle.$green_accepted_color;
+
+          &:hover {
+            background-color: #238637d5;
+          }
+          &:active {
+            background-color: #238637c5;
+          }
+        }
+      }
+    }
+  }
+}

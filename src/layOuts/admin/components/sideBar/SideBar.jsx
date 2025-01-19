@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
+import MainContext from "../../../../contexts/MainContext";
 import styles from "./SideBar.module.scss";
 import SideBarItem from "./sideBarItem/SideBarItem";
 import { sideBarItems } from "./sideBarItems";
 import SideBarUsernameItem from "./sideBarUsernameItem/SideBarUsernameItem";
-import MainContext from "../../../../contexts/MainContext";
 
 export default function SideBar() {
   // context
-  const { appSetting, setAppSetting } = useContext(MainContext);
+  const { appSetting, setAppSetting, newAppSetting } = useContext(MainContext);
 
   // side effect
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function SideBar() {
       .then((data) => {
         setAppSetting(data);
       });
-  }, []);
+  }, [newAppSetting]);
 
   return (
     <ul className={styles.king}>

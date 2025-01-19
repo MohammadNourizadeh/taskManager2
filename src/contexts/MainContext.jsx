@@ -9,6 +9,7 @@ export const MainContextProvider = ({ children }) => {
   const [selectedItem, setSelectedItem] = useState("my day");
   const [searchInputVal, setSearchInputVal] = useState("");
   const [appSetting, setAppSetting] = useState({});
+  const [newAppSetting, setNewAppSetting] = useState({});
 
   return (
     <MainContext.Provider
@@ -23,6 +24,8 @@ export const MainContextProvider = ({ children }) => {
         setSearchInputVal,
         appSetting,
         setAppSetting,
+        newAppSetting,
+        setNewAppSetting,
       }}
     >
       {children}

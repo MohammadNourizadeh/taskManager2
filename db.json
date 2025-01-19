@@ -1,75 +1,7 @@
 {
   "setting": {
-    "item": {
-      "item": {
-        "item": {
-          "item": {
-            "item": {
-              "item": {
-                "item": {
-                  "item": {
-                    "item": {
-                      "item": {
-                        "item": {
-                          "item": {
-                            "item": {
-                              "item": {
-                                "item": {
-                                  "item": {
-                                    "item": {
-                                      "username": "username",
-                                      "theme": "dark"
-                                    },
-                                    "username": "usernaaame",
-                                    "theme": "dark"
-                                  },
-                                  "username": "username",
-                                  "theme": "dark"
-                                },
-                                "username": "username",
-                                "theme": "light"
-                              },
-                              "username": "username",
-                              "theme": "light"
-                            },
-                            "username": "username",
-                            "theme": "dark"
-                          },
-                          "username": "usernameaa",
-                          "theme": "dark"
-                        },
-                        "username": "username",
-                        "theme": "dark"
-                      },
-                      "username": "username",
-                      "theme": "dark"
-                    },
-                    "username": "username",
-                    "theme": "dark"
-                  },
-                  "username": "username",
-                  "theme": "dark"
-                },
-                "username": "username",
-                "theme": "dark"
-              },
-              "username": "usernamea",
-              "theme": "dark"
-            },
-            "username": "usernamea",
-            "theme": "dark"
-          },
-          "username": "usernamea",
-          "theme": "dark"
-        },
-        "username": "usernamea",
-        "theme": "dark"
-      },
-      "username": "usernamea",
-      "theme": "light"
-    },
-    "username": "usernamea",
-    "theme": "dark"
+    "username": "user",
+    "theme": ""
   },
   "tasks": [
     {

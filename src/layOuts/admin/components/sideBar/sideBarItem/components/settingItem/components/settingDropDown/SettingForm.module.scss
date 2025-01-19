@@ -5,58 +5,6 @@
 
   .settingOptionsList {
     list-style: none;
-
-    li {
-      padding: 20px 25px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      color: mainStyle.$darkMode_text_color;
-      height: 60px;
-
-      .dropDownIconContainer {
-        margin-right: 20px;
-        width: 20px;
-      }
-
-      .dropDownUsernameContainer {
-        input {
-          padding: 5px;
-          width: 90%;
-          border: 0;
-          color: mainStyle.$darkMode_text_color;
-          border-radius: 5px;
-          background-color: mainStyle.$darkMode_part_bg_color;
-
-          &:focus {
-            outline: 2px solid mainStyle.$green_accepted_color;
-          }
-        }
-      }
-
-      .dropDownBtnContainer {
-        margin-left: auto;
-
-        button,
-        select {
-          cursor: pointer;
-          width: 65px;
-          text-align: center;
-          border: 0;
-          border-radius: 5px;
-          padding: 5px;
-          color: mainStyle.$darkMode_text_color;
-          background-color: rgb(51, 139, 246);
-
-          &:hover {
-            background-color: rgb(51, 139, 246, 0.835);
-          }
-          &:active {
-            background-color: rgb(51, 139, 246, 0.773);
-          }
-        }
-      }
-    }
   }
 
   .settingFormBtns {

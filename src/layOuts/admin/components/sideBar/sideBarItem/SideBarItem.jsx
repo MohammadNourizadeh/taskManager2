@@ -33,13 +33,6 @@ export default function SideBarItem({
       }}
     />
   ) : (
-    <SettingItem
-      iconName={iconName}
-      itemName={itemName}
-      selectedItem={selectedItem}
-      onSelect={(itemName) => {
-        setSelectedItem(itemName);
-      }}
-    />
+    <SettingItem iconName={iconName} itemName={itemName} />
   );
 }

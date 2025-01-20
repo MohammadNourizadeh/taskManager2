@@ -1,21 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 import styles from "./SettingItem.module.scss";
 import SettingForm from "./components/settingDropDown/SettingForm";
 
-export default function SettingItem({
-  iconName,
-  itemName,
-  selectedItem,
-  onSelect,
-}) {
+export default function SettingItem({ iconName, itemName, onSelect }) {
+  // state
+  const [isSettingItemSelected, setIsSettingItemSelected] = useState(false);
+
   return (
     <>
       <li
-        className={
-          selectedItem === itemName ? styles.selected : styles.unSelected
-        }
+        className={isSettingItemSelected ? styles.selected : styles.unSelected}
         onClick={() => {
-          onSelect(itemName);
+          setIsSettingItemSelected((prev) => !prev);
         }}
       >
         <span>
@@ -23,7 +20,7 @@ export default function SettingItem({
         </span>
         {itemName}
       </li>
-      {selectedItem === itemName && (
+      {isSettingItemSelected && (
         <li>
           <SettingForm />
         </li>

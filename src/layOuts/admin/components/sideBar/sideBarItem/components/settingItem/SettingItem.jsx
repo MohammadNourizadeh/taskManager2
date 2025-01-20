@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./SettingItem.module.scss";
 import SettingForm from "./components/settingDropDown/SettingForm";
 
-export default function SettingItem({ iconName, itemName, onSelect }) {
+export default function SettingItem({ iconName, itemName }) {
   // state
   const [isSettingItemSelected, setIsSettingItemSelected] = useState(false);
 

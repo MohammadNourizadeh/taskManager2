@@ -4,8 +4,6 @@ import { Slide, ToastContainer } from "react-toastify";
 import App from "./App.jsx";
 import "./assets/styles/mainStyle.scss";
 import { MainContextProvider } from "./contexts/MainContext.jsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fa0 } from "@fortawesome/free-solid-svg-icons";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -13,7 +11,7 @@ createRoot(document.getElementById("root")).render(
       <App />
       <ToastContainer
         position="top-right"
-        autoClose={1000}
+        autoClose={2000}
         hideProgressBar
         newestOnTop={false}
         closeOnClick={false}

@@ -1,9 +1,9 @@
 import { faMultiply } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 import MainContext from "../../../../contexts/MainContext";
 import styles from "./NewTaskForm.module.scss";
-import { toast } from "react-toastify";
 
 export default function NewTaskForm({ onClose }) {
   // context
@@ -27,17 +27,17 @@ export default function NewTaskForm({ onClose }) {
         body: JSON.stringify(newItem),
       }).then((res) => {
         if (res.ok) {
-          toast.success("added");
+          toast.success("added", { autoClose: 1000 });
           setTasks((prev) => [...prev, newItem]);
         }
       });
 
       setIsFormOpen(false);
     } else {
-      if(newItem.name === "" && newItem.date === ""){
+      if (newItem.name === "" && newItem.date === "") {
         toast.error("enter the task name");
         toast.error("choose a date for the task");
-      }else if (newItem.name === "") {
+      } else if (newItem.name === "") {
         toast.error("enter the task name");
       } else if (newItem.date === "") {
         toast.error("choose a date for the task");

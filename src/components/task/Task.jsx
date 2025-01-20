@@ -6,7 +6,7 @@ import styles from "./Task.module.scss";
 
 export default function Task({ tasks, task, onSetNewList }) {
   // context
-  const { selectedItem } = useContext(MainContext);
+  const { selectedItem, appSetting } = useContext(MainContext);
 
   // func
   const handleRemoveTask = () => {
@@ -57,7 +57,10 @@ export default function Task({ tasks, task, onSetNewList }) {
   const checkboxId = useId();
 
   return (
-    <div className={styles.king}>
+    <div
+      className={styles.king}
+      id={appSetting.theme === "light" ? styles.lightMode : ""}
+    >
       <div
         className={styles.checkBoxContainer}
         title={task.done ? "uncheck the task" : "check the task"}

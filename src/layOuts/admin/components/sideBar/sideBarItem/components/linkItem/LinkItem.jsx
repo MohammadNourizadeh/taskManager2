@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import MainContext from "../../../../../../../contexts/MainContext";
 import styles from "./LinkItem.module.scss";
 
 export default function LinkItem({
@@ -10,12 +12,16 @@ export default function LinkItem({
   selectedItem,
   onSelect,
 }) {
+  // context
+  const { appSetting } = useContext(MainContext);
+
   return (
     <li
       className={styles.king}
       onClick={() => {
         onSelect(itemName);
       }}
+      id={appSetting.theme === "light" ? styles.lightMode : ""}
     >
       <Link
         to={linkAddress}

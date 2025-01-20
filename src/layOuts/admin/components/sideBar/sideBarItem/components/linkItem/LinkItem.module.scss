@@ -40,3 +40,18 @@
     }
   }
 }
+
+#lightMode {
+  .unSelected {
+    color: mainStyle.$lightMode_text_color;
+
+    &:hover {
+      background-color: mainStyle.$lightMode_border_color;
+    }
+  }
+
+  .selected {
+    background-color: mainStyle.$lightMode_border_color;
+    color: mainStyle.$lightMode_text_color;
+  }
+}

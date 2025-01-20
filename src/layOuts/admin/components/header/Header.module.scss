@@ -5,3 +5,9 @@
   display: flex;
   color: mainStyle.$darkMode_text_color;
 }
+
+// light mode
+
+#lightMode {
+  color: mainStyle.$lightMode_text_color;
+}

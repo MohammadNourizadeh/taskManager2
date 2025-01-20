@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 export default function NewTaskForm({ onClose }) {
   // context
-  const { setTasks, setIsFormOpen } = useContext(MainContext);
+  const { setTasks, setIsFormOpen, appSetting } = useContext(MainContext);
 
   // func
   const handelAdd = (e) => {
@@ -35,7 +35,10 @@ export default function NewTaskForm({ onClose }) {
   };
 
   return (
-    <div className={styles.king}>
+    <div
+      className={styles.king}
+      id={appSetting.theme === "light" ? styles.lightMode : ""}
+    >
       <form onSubmit={handelAdd}>
         <div className={styles.inputContainer}>
           <label htmlFor="taskName">enter the task :</label>

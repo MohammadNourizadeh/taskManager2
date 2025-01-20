@@ -1,10 +1,18 @@
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import MainContext from "../../contexts/MainContext";
 import styles from "./FailureSearchText.module.scss";
 
 export default function FailureSearchText({ searchedText }) {
+  // context
+  const { appSetting } = useContext(MainContext);
+
   return (
-    <div className={styles.king}>
+    <div
+      className={styles.king}
+      id={appSetting.theme === "light" ? styles.lightMode : ""}
+    >
       <div className={styles.messageContainer}>
         Your search - <span className={styles.inputText}>{searchedText}</span> -
         did not match any documents.

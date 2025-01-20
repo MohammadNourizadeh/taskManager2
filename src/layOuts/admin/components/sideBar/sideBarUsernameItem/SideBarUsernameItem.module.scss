@@ -18,3 +18,7 @@
     text-transform: none;
   }
 }
+
+#lightMode {
+  color: mainStyle.$lightMode_text_color;
+}

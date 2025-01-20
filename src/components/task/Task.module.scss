@@ -96,7 +96,7 @@
   .removeIcon {
     color: mainStyle.$red_error_color;
 
-    &:hover{
+    &:hover {
       border-color: mainStyle.$red_error_color;
     }
   }
@@ -104,7 +104,7 @@
   .starIcon {
     color: rgb(51, 139, 246);
 
-    &:hover{
+    &:hover {
       border-color: rgb(51, 139, 246);
     }
   }
@@ -113,5 +113,51 @@
     color: mainStyle.$darkMode_border_color;
     background-color: rgb(51, 139, 246);
     height: 50px;
+  }
+}
+
+// light mode
+
+#lightMode {
+  border-bottom-color: mainStyle.$lightMode_border_color;
+  border-top-color: mainStyle.$lightMode_border_color;
+  color: mainStyle.$lightMode_text_color;
+
+  .checkBoxContainer {
+    .handle {
+      background-color: mainStyle.$lightMode_border_color;
+    }
+
+    .myCheck input:checked + .handle {
+      background-color: #36cf22;
+    }
+  }
+
+  .taskInfo {
+    .taskDate {
+      color: rgba(0, 0, 0, 0.482);
+    }
+  }
+
+  .starIcon,
+  .removeIcon {
+    border: 3px solid mainStyle.$lightMode_border_color;
+    border-top: none;
+  }
+
+  .removeIcon {
+    &:hover {
+      border-color: mainStyle.$red_error_color;
+    }
+  }
+
+  .starIcon {
+    &:hover {
+      border-color: rgb(51, 139, 246);
+    }
+  }
+
+  #blueStar {
+    color: mainStyle.$lightMode_border_color;
   }
 }

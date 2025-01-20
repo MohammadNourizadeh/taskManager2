@@ -6,7 +6,7 @@ import styles from "./SearchInput.module.scss";
 
 export default function SearchInput() {
   // context
-  const { setSearchInputVal } = useContext(MainContext);
+  const { setSearchInputVal, appSetting } = useContext(MainContext);
 
   // func
   const handleSearch = (e) => {
@@ -16,7 +16,11 @@ export default function SearchInput() {
   };
 
   return (
-    <form className={styles.king} onSubmit={handleSearch}>
+    <form
+      className={styles.king}
+      onSubmit={handleSearch}
+      id={appSetting.theme === "light" ? styles.lightMode : ""}
+    >
       <button type="submit">
         <FontAwesomeIcon icon={faSearch} />
       </button>

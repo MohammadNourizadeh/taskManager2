@@ -2,7 +2,7 @@
 
 .king {
   position: relative;
-  
+
   button {
     color: mainStyle.$darkMode_text_color;
     position: absolute;
@@ -36,5 +36,18 @@
     &:focus {
       outline: 2px solid mainStyle.$green_accepted_color;
     }
+  }
+}
+
+// light mode
+#lightMode {
+  button {
+    color: mainStyle.$lightMode_text_color;
+  }
+
+  input {
+    color: mainStyle.$lightMode_text_color;
+    background-color: mainStyle.$lightMode_part_bg_color;
+    border-color: mainStyle.$lightMode_border_color;
   }
 }

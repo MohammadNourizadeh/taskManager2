@@ -59,7 +59,10 @@ export default function SettingForm() {
   };
 
   return (
-    <div className={styles.king}>
+    <div
+      className={styles.king}
+      id={appSetting.theme === "light" ? styles.lightMode : ""}
+    >
       <ul className={styles.settingOptionsList}>
         <li className={styles.king}>
           <div className={styles.dropDownIconContainer}>

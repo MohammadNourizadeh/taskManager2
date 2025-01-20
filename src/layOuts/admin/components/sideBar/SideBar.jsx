@@ -1,26 +1,12 @@
-import { useContext, useEffect } from "react";
-import MainContext from "../../../../contexts/MainContext";
 import styles from "./SideBar.module.scss";
 import SideBarItem from "./sideBarItem/SideBarItem";
 import { sideBarItems } from "./sideBarItems";
 import SideBarUsernameItem from "./sideBarUsernameItem/SideBarUsernameItem";
 
-export default function SideBar() {
-  // context
-  const { appSetting, setAppSetting, newAppSetting } = useContext(MainContext);
-
-  // side effect
-  useEffect(() => {
-    fetch("http://localhost:8000/setting")
-      .then((res) => res.json())
-      .then((data) => {
-        setAppSetting(data);
-      });
-  }, [newAppSetting]);
-
+export default function SideBar({ sidebarUsername }) {
   return (
     <ul className={styles.king}>
-      <SideBarUsernameItem username={appSetting.username} />
+      <SideBarUsernameItem username={sidebarUsername} />
       <hr />
       {sideBarItems.map((sideBarItem, index) => (
         <SideBarItem

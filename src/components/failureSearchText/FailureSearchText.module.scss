@@ -23,8 +23,14 @@
     }
   }
 
-  .iconContainer{
+  .iconContainer {
     text-align: center;
     font-size: 7em;
   }
+}
+
+// light mode
+
+#lightMode {
+  color: mainStyle.$lightMode_text_color;
 }

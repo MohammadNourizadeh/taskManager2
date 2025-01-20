@@ -26,3 +26,20 @@
 .selected {
   background-color: mainStyle.$darkMode_border_color;
 }
+
+// light mode
+
+#lightModeUnSelected,
+#lightModeSelected {
+  color: mainStyle.$lightMode_text_color;
+}
+
+#lightModeUnSelected {
+  &:hover {
+    background-color: mainStyle.$lightMode_border_color;
+  }
+}
+
+#lightModeSelected {
+  background-color: mainStyle.$lightMode_border_color;
+}

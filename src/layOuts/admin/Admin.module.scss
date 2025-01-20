@@ -32,3 +32,19 @@
     }
   }
 }
+
+// light mode
+#lightMode {
+  background-color: mainStyle.$lightMode_main_bg_color;
+
+  .sideBarContainer {
+    border-color: mainStyle.$lightMode_border_color;
+    background-color: mainStyle.$lightMode_part_bg_color;
+  }
+
+  .headerAndMainContentContainer {
+    .mainContentContainer {
+      background-color: mainStyle.$lightMode_part_bg_color;
+    }
+  }
+}

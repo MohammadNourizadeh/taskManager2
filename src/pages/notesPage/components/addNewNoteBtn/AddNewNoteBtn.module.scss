@@ -1,0 +1,38 @@
+@use "../../../../assets/styles/mainStyle.scss";
+
+.king {
+  color: mainStyle.$darkMode_text_color;
+  background-color: mainStyle.$darkMode_part_bg_color;
+  border: 2px solid mainStyle.$darkMode_text_color;
+  border-top: 0;
+  border-bottom: 0;
+  font-size: 5em;
+  border-radius: 30px;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  transition: 0.1s ease-in;
+
+  &:hover {
+    color: rgb(51, 139, 246);
+    border-radius: 15px;
+    border-color: rgb(51, 139, 246);
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+// light mode
+#lightMode {
+  color: mainStyle.$lightMode_text_color;
+  background-color: mainStyle.$lightMode_part_bg_color;
+  border-color: mainStyle.$lightMode_text_color;
+
+  &:hover {
+    color: rgb(51, 139, 246);
+    border-radius: 15px;
+    border-color: rgb(51, 139, 246);
+  }
+}

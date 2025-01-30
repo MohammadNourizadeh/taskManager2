@@ -1,13 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import AddNewNoteBtn from "./components/addNewNoteBtn/AddNewNoteBtn";
 import styles from "./NotesPage.module.scss";
-import { faAdd } from "@fortawesome/free-solid-svg-icons";
 
 export default function NotesPage() {
   return (
     <div className={styles.king}>
-      <div>
-        <FontAwesomeIcon icon={faAdd} />
-      </div>
+      <AddNewNoteBtn />
     </div>
   );
 }

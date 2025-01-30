@@ -112,19 +112,6 @@
           background-color: mainStyle.$lightMode_part_bg_color;
         }
       }
-
-      .dropDownBtnContainer {
-        button,
-        select {
-          color: mainStyle.$lightMode_text_color;
-        }
-      }
-    }
-  }
-
-  .settingFormBtns {
-    button {
-      color: mainStyle.$lightMode_text_color;
     }
   }
 }

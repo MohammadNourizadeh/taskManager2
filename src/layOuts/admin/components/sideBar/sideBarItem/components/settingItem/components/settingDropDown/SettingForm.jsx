@@ -73,6 +73,7 @@ export default function SettingForm() {
               <input
                 type="text"
                 name="username"
+                autoFocus
                 value={inputText}
                 onChange={(e) => {
                   setInputText(e.target.value);

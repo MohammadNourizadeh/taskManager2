@@ -28,8 +28,8 @@ const sideBarItems = [
         itemName: "notes",
         iconColor: "rgb(91, 246, 77)",
         isLink: true,
-        linkAddress: '/',
-        disable: true
+        linkAddress: '/admin/notes',
+        disable: false
     },
     {
         iconName: faTasks,

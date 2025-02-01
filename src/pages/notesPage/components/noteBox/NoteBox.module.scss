@@ -1,0 +1,45 @@
+@use "../../../../assets/styles/mainStyle.scss";
+
+.king {
+  color: mainStyle.$darkMode_text_color;
+  background-color: mainStyle.$darkMode_main_bg_color;
+  border-radius: 30px;
+  width: 250px;
+  height: 250px;
+  font-size: 1em;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  line-height: 25px;
+
+  p {
+    padding: 13px;
+    overflow: auto;
+    height: 100%;
+  }
+
+  .btnsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: mainStyle.$darkMode_border_color;
+    height: 25%;
+
+    button {
+      width: 30px;
+      font-size: 1.3em;
+      background-color: rgba(255, 255, 255, 0);
+      border: 0;
+    }
+  }
+}
+
+// light mode
+#lightMode {
+    color: mainStyle.$lightMode_text_color;
+    background-color: mainStyle.$lightMode_main_bg_color;
+
+  .btnsContainer {
+    background-color: mainStyle.$lightMode_border_color;
+  }
+}

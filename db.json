@@ -5,10 +5,22 @@
   },
   "tasks": [
     {
-      "id": "64dd8b2e-10d6-43a1-a385-6da313bfba14",
+      "id": "90bb05fb-28fc-4da7-930d-cd8524a3bec5",
       "name": "washing parking",
-      "date": "2025-01-24",
+      "date": "2025-02-06",
       "done": false,
+      "important": "no"
+    }
+  ],
+  "notes": [
+    {
+      "id": "1",
+      "text": "Every struggle in your life has shaped you into the person . You are today . Be thankful for the hard times , they have made you STRONGER",
+      "important": "no"
+    },
+    {
+      "id": "1",
+      "text": "Every struggle in your life has shaped you into the person . You are today . Be thankful for the hard times , they have made you STRONGER",
       "important": "no"
     }
   ]

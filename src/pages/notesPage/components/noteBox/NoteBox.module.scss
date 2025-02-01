@@ -13,33 +13,67 @@
   line-height: 25px;
 
   p {
-    padding: 13px;
+    padding: 20px;
     overflow: auto;
     height: 100%;
+    text-align: start;
   }
 
   .btnsContainer {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    background-color: mainStyle.$darkMode_border_color;
+    align-items: center;
+    gap: 30px;
     height: 25%;
 
     button {
-      width: 30px;
+      cursor: pointer;
+      padding: 5px;
       font-size: 1.3em;
       background-color: rgba(255, 255, 255, 0);
+      transition: 0.1s ease-in-out;
       border: 0;
+
+      &:hover {
+        opacity: 0.8;
+      }
+      &:active {
+        opacity: 0.7;
+      }
+    }
+
+    .starBtn {
+      color: mainStyle.$darkMode_border_color;
+    }
+    #checkedStarBtn {
+      color: rgb(51, 139, 246);
+    }
+
+    .squareBtn {
+      color: mainStyle.$darkMode_text_color;
+    }
+
+    .removeBtn {
+      color: mainStyle.$red_error_color;
     }
   }
 }
 
 // light mode
 #lightMode {
-    color: mainStyle.$lightMode_text_color;
-    background-color: mainStyle.$lightMode_main_bg_color;
+  color: mainStyle.$lightMode_text_color;
+  background-color: mainStyle.$lightMode_main_bg_color;
 
   .btnsContainer {
-    background-color: mainStyle.$lightMode_border_color;
+    .starBtn {
+      color: mainStyle.$lightMode_border_color;
+    }
+    #checkedStarBtn {
+      color: rgb(51, 139, 246);
+    }
+
+    .squareBtn {
+      color: mainStyle.$lightMode_text_color;
+    }
   }
 }

@@ -1,51 +1,66 @@
 import {
-    faSquareUpRight,
-    faStar,
-    faXmark,
+  faSquareUpRight,
+  faStar,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import MainContext from "../../../../contexts/MainContext";
 import styles from "./NoteBox.module.scss";
 
-export default function NoteBox() {
+export default function NoteBox({ notes, note, onNewList }) {
   // context
   const { appSetting } = useContext(MainContext);
 
+  // func
+  const handleRemove = () => {
+    fetch(`http://localhost:8000/notes/${note.id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        const temp = notes.filter((item) => item.id !== note.id);
+        onNewList(temp);
+      }
+    });
+  };
+
+  const handleNoteImportance = () => {
+    fetch(
+      `http://localhost:8000/notes/${note.id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({ important: note.important === "yes" ? "no" : "yes" }),
+      }).then((res) => {
+        if (res.ok) {
+          const temp = [...notes];
+          const changedItemIndex = temp.findIndex(
+            (item) => item.id === note.id
+          );
+          const changedItem = temp[changedItemIndex];
+          changedItem.important = changedItem.important === "yes" ? "no" : "yes";
+          temp[changedItemIndex] = changedItem;
+          onNewList(temp)
+        }
+      })
+  };
+  
   return (
     <div
       className={styles.king}
       id={appSetting.theme === "light" ? styles.lightMode : ""}
     >
-      <p>
-        orem ipsum dolor sit amet consectetur adipisicing elit. Maiores autem
-        corrupti doloribus ab minus id sapiente et perspiciatis optio. Error
-        velit odio earum minus est aperiam quae quas reiciendis mollitia!
-        Nesciunt minima obcaecati amet asperiores fugiat exercitationem
-        accusantium saepe, molestiae molestias eaque quasi earum nobis velit
-        quod repellendus tempore voluptatum reiciendis alias minus incidunt ab
-        nam quisquam. Eveniet, delectus consequuntur. Vel hic veritatis ipsam
-        quibusdam, nihil asperiores minima accusantium, dolor exercitationem
-        expedita dolorem ab eveniet provident eaque explicabo ad temporibus enim
-        odit. Beatae, ipsum! Dolorem eaque vitae rem optio laudantium? Natus
-        non, molestiae provident, quisquam earum dolorem aperiam iusto tenetur
-        omnis, obcaecati mollitia illo recusandae magnam in nemo quam iste hic
-        numquam? Soluta aperiam aliquam repellat modi, necessitatibus laudantium
-        porro! Quo corporis ab veritatis optio error eius. Libero et dolores cum
-        accusantium totam, ipsam officia itaque repudiandae ut sequi qui fugiat
-        labore nesciunt necessitatibus ipsa maxime dolorum temporibus at!
-        Voluptatum? Eos dicta totam reprehenderit, libero a nihil beatae dolore
-        ipsa ab, accusamus quae voluptas autem quod sunt distinctio perferendis
-        magni consectetur dignissimos. Eligendi delectus dolorem ea incidunt
-      </p>
+      <p>{note.text}</p>
       <div className={styles.btnsContainer}>
-        <button>
-          <FontAwesomeIcon icon={faStar} />
+        <button
+          className={styles.starBtn}
+          id={note.important === "yes" ? styles.checkedStarBtn : ""}
+        >
+          <FontAwesomeIcon icon={faStar} onClick={handleNoteImportance} />
         </button>
-        <button>
+        <button className={styles.squareBtn}>
           <FontAwesomeIcon icon={faSquareUpRight} />
         </button>
-        <button>
+        <button className={styles.removeBtn} onClick={handleRemove}>
           <FontAwesomeIcon icon={faXmark} />
         </button>
       </div>

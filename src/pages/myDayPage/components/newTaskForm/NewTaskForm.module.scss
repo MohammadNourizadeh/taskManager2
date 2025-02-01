@@ -102,10 +102,10 @@
       transition: 0.1s ease-in-out;
 
       &:hover {
-        color: rgba(204, 6, 6, 0.708);
+        opacity: 0.8;
       }
       &:active {
-        color: rgba(204, 6, 6, 0.605);
+        opacity: 0.7;
       }
     }
   }

@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import MainContext from '../../contexts/MainContext';
 import styles from './AddNewForm.module.scss';
 
-export default function AddNewForm({    onClose, onAdd }) {
+export default function AddNewForm({ onClose, onAdd }) {
     // context
     const { selectedItem, appSetting } = useContext(MainContext);
 

@@ -23,6 +23,7 @@
     position: relative;
 
     div {
+      input,
       select,
       textarea {
         padding: 8px;
@@ -35,6 +36,23 @@
         &:focus {
           outline: 2px solid mainStyle.$green_accepted_color;
         }
+      }
+    }
+
+    .inputContainer,
+    .textareaContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .inputContainer {
+      input {
+        width: 250px;
+      }
+
+      input[type="date"] {
+        cursor: pointer;
       }
     }
 

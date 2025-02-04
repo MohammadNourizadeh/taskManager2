@@ -1,4 +1,5 @@
 import {
+  faEdit,
   faSquareUpRight,
   faStar,
   faXmark,
@@ -43,7 +44,7 @@ export default function NoteBox({ notes, note, onNewList }) {
         }
       })
   };
-  
+
   return (
     <div
       className={styles.king}
@@ -57,8 +58,8 @@ export default function NoteBox({ notes, note, onNewList }) {
         >
           <FontAwesomeIcon icon={faStar} onClick={handleNoteImportance} />
         </button>
-        <button className={styles.squareBtn}>
-          <FontAwesomeIcon icon={faSquareUpRight} />
+        <button className={styles.editBtn}>
+          <FontAwesomeIcon icon={faEdit} />
         </button>
         <button className={styles.removeBtn} onClick={handleRemove}>
           <FontAwesomeIcon icon={faXmark} />

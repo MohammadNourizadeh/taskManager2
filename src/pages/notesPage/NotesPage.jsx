@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import AddNewNoteBtn from "./components/addNewNoteBtn/AddNewNoteBtn";
+import NewNoteForm from "./components/newNoteForm/NewNoteForm";
 import NoteBox from "./components/noteBox/NoteBox";
 import styles from "./NotesPage.module.scss";
 
 export default function NotesPage() {
   // state
   const [notes, setNotes] = useState([]);
+  const [isFormOpen, setIsFormOpen] = useState(false)
 
   // side effect
   useEffect(() => {
@@ -15,7 +17,7 @@ export default function NotesPage() {
         setNotes(data);
       });
   }, []);
-  
+
   return (
     <div className={styles.king}>
       {notes.map((note) => (
@@ -28,7 +30,8 @@ export default function NotesPage() {
           key={note.id}
         />
       ))}
-      <AddNewNoteBtn />
+      <AddNewNoteBtn onOpenForm={(val) => { setIsFormOpen(val) }} />
+      {isFormOpen && <NewNoteForm onClose={(val) => { setIsFormOpen(val) }} />}
     </div>
   );
 }

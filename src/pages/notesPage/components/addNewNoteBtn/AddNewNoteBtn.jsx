@@ -4,7 +4,7 @@ import { useContext } from "react";
 import MainContext from "../../../../contexts/MainContext";
 import styles from "./AddNewNoteBtn.module.scss";
 
-export default function AddNewNoteBtn() {
+export default function AddNewNoteBtn({ onOpenForm }) {
   // context
   const { appSetting } = useContext(MainContext);
 
@@ -12,6 +12,9 @@ export default function AddNewNoteBtn() {
     <button
       className={styles.king}
       id={appSetting.theme === "light" ? styles.lightMode : ""}
+      onClick={() => {
+        onOpenForm(true)
+      }}
     >
       <FontAwesomeIcon icon={faAdd} />
     </button>

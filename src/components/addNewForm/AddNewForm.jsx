@@ -1,12 +1,18 @@
 import { faMultiply } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useContext } from 'react';
+import MainContext from '../../contexts/MainContext';
 import styles from './AddNewForm.module.scss';
 
-export default function AddNewForm({ pageName, onClose, onAdd }) {
+export default function AddNewForm({    onClose, onAdd }) {
+    // context
+    const { selectedItem, appSetting } = useContext(MainContext);
+
     // func
     const handelAdd = (e) => {
         e.preventDefault();
-        onAdd()
+        const formData = new FormData(e.currentTarget);
+        onAdd(formData)
     }
 
     return (
@@ -15,7 +21,7 @@ export default function AddNewForm({ pageName, onClose, onAdd }) {
             id={appSetting.theme === "light" ? styles.lightMode : ""}
         >
             <form onSubmit={handelAdd}>
-                {pageName === "my day" ?
+                {selectedItem === "my day" ?
                     <>
                         <div className={styles.inputContainer}>
                             <label htmlFor="taskName">enter the task :</label>

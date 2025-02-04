@@ -3,6 +3,7 @@ import AddNewNoteBtn from "./components/addNewNoteBtn/AddNewNoteBtn";
 import NewNoteForm from "./components/newNoteForm/NewNoteForm";
 import NoteBox from "./components/noteBox/NoteBox";
 import styles from "./NotesPage.module.scss";
+import AddNewForm from "../../components/addNewForm/AddNewForm";
 
 export default function NotesPage() {
   // state
@@ -31,7 +32,7 @@ export default function NotesPage() {
         />
       ))}
       <AddNewNoteBtn onOpenForm={(val) => { setIsFormOpen(val) }} />
-      {isFormOpen && <NewNoteForm onClose={(val) => { setIsFormOpen(val) }} />}
+      {isFormOpen && <AddNewForm onClose={(val) => { setIsFormOpen(val) }} />}
     </div>
   );
 }

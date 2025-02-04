@@ -1,10 +1,11 @@
 import { useContext, useEffect } from "react";
+import { toast } from "react-toastify";
+import AddNewForm from "../../components/addNewForm/AddNewForm";
 import FailureSearchText from "../../components/failureSearchText/FailureSearchText";
 import Task from "../../components/task/Task";
 import MainContext from "../../contexts/MainContext";
 import styles from "./MyDayPage.module.scss";
 import AddTaskBtn from "./components/addTaskBtn/AddTaskBtn";
-import NewTaskForm from "./components/newTaskForm/NewTaskForm";
 
 export default function MyDayPage() {
   // context
@@ -17,6 +18,41 @@ export default function MyDayPage() {
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, [searchInputVal]);
+
+  // func
+  const handelAdd = (formData) => {
+    const newItem = {
+      id: crypto.randomUUID(),
+      name: formData.get("taskName"),
+      date: formData.get("taskDate"),
+      done: false,
+      important: formData.get("isImportant"),
+    };
+
+    if (newItem.name !== "" && newItem.date !== "") {
+      fetch("http://localhost:8000/tasks", {
+        method: "POST",
+        body: JSON.stringify(newItem),
+      }).then((res) => {
+        if (res.ok) {
+          toast.success("added", { autoClose: 1000 });
+          setTasks((prev) => [...prev, newItem]);
+        }
+      });
+
+      setIsFormOpen(false);
+    } else {
+      if (newItem.name === "" && newItem.date === "") {
+        toast.error("enter the task name");
+        toast.error("choose a date for the task");
+      } else if (newItem.name === "") {
+        toast.error("enter the task name");
+      } else if (newItem.date === "") {
+        toast.error("choose a date for the task");
+      }
+    }
+  };
+
 
   return (
     <div className={styles.king}>
@@ -40,11 +76,10 @@ export default function MyDayPage() {
             }}
           />
           {isFormOpen && (
-            <NewTaskForm
-              onClose={(val) => {
-                setIsFormOpen(val);
-              }}
-            />
+            <AddNewForm onClose={(val) => {
+              setIsFormOpen(val);
+            }}
+              onAdd={handelAdd} />
           )}
         </>
       )}

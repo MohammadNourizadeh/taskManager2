@@ -1,7 +1,7 @@
 {
   "setting": {
     "username": "Mohammad",
-    "theme": "light"
+    "theme": "dark"
   },
   "tasks": [
     {
@@ -16,7 +16,7 @@
     {
       "id": "1",
       "text": "Every struggle in your life has shaped you into the person . You are today . Be thankful for the hard times , they have made you STRONGER",
-      "important": "yes"
+      "important": "no"
     }
   ]
 }

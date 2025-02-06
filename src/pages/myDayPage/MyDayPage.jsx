@@ -29,7 +29,7 @@ export default function MyDayPage() {
       important: formData.get("isImportant"),
     };
 
-    if (newItem.name !== "" && newItem.date !== "") {
+    if (newItem.name && newItem.date) {
       fetch("http://localhost:8000/tasks", {
         method: "POST",
         body: JSON.stringify(newItem),
@@ -39,15 +39,14 @@ export default function MyDayPage() {
           setTasks((prev) => [...prev, newItem]);
         }
       });
-
       setIsFormOpen(false);
     } else {
-      if (newItem.name === "" && newItem.date === "") {
+      if (!newItem.name && !newItem.date) {
         toast.error("enter the task name");
         toast.error("choose a date for the task");
-      } else if (newItem.name === "") {
+      } else if (!newItem.name) {
         toast.error("enter the task name");
-      } else if (newItem.date === "") {
+      } else if (!newItem.date) {
         toast.error("choose a date for the task");
       }
     }

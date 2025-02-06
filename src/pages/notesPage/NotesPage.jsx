@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import AddNewForm from "../../components/addNewForm/AddNewForm";
 import AddNewNoteBtn from "./components/addNewNoteBtn/AddNewNoteBtn";
-import NewNoteForm from "./components/newNoteForm/NewNoteForm";
 import NoteBox from "./components/noteBox/NoteBox";
 import styles from "./NotesPage.module.scss";
-import AddNewForm from "../../components/addNewForm/AddNewForm";
 
 export default function NotesPage() {
   // state
@@ -19,6 +19,32 @@ export default function NotesPage() {
       });
   }, []);
 
+  // func
+  const handelAddNewNote = (formData) => {
+    const newNote = {
+      id: crypto.randomUUID(),
+      text: formData.get("note"),
+      important: formData.get("isImportant")
+    }
+
+    if (newNote.text) {
+      fetch('http://localhost:8000/notes', {
+        method: "POST",
+        body: JSON.stringify(newNote)
+      }).then(res => {
+        if (res.ok) {
+          toast.success("added", { autoClose: 1000 });
+          setNotes(prev => [...prev, newNote])
+        }
+      })
+      setIsFormOpen(false)
+    } else {
+      if (!newNote.text) {
+        toast.error("enter a note");
+      }
+    }
+  }
+
   return (
     <div className={styles.king}>
       {notes.map((note) => (
@@ -32,7 +58,7 @@ export default function NotesPage() {
         />
       ))}
       <AddNewNoteBtn onOpenForm={(val) => { setIsFormOpen(val) }} />
-      {isFormOpen && <AddNewForm onClose={(val) => { setIsFormOpen(val) }} />}
+      {isFormOpen && <AddNewForm onAdd={handelAddNewNote} onClose={(val) => { setIsFormOpen(val) }} />}
     </div>
   );
 }

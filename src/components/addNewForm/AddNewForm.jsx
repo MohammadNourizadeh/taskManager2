@@ -39,8 +39,8 @@ export default function AddNewForm({ onClose, onAdd }) {
                     </div>
                 }
                 <div className={styles.selectContainer}>
-                    <label htmlFor="isNoteImportant">is the note important ?</label>
-                    <select name="isNoteImportant" id="isNoteImportant">
+                    <label htmlFor="isImportant">is the note important ?</label>
+                    <select name="isImportant" id="isImportant">
                         <option value="no">no</option>
                         <option value="yes">yes</option>
                     </select>

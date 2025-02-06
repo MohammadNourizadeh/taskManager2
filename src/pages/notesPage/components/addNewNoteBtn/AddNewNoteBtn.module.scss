@@ -1,8 +1,8 @@
 @use "../../../../assets/styles/mainStyle.scss";
 
 .king {
-  color: mainStyle.$darkMode_text_color;
-  background-color: mainStyle.$darkMode_border_color;
+  color: mainStyle.$green_accepted_color;
+  background-color: rgba(35, 134, 55, 0.09);
   border: 3px solid mainStyle.$green_accepted_color;
   border-top: 0;
   border-bottom: 0;
@@ -25,7 +25,7 @@
 
 // light mode
 #lightMode {
-  color: mainStyle.$lightMode_text_color;
-  background-color: mainStyle.$lightMode_border_color;
+  color: mainStyle.$green_accepted_color;
+  background-color: rgba(35, 134, 55, 0.09);
   border-color: mainStyle.$green_accepted_color;
 }

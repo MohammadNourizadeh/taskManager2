@@ -1,17 +1,20 @@
 import {
   faEdit,
-  faSquareUpRight,
   faStar,
-  faXmark,
+  faXmark
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import MainContext from "../../../../contexts/MainContext";
 import styles from "./NoteBox.module.scss";
 
 export default function NoteBox({ notes, note, onNewList }) {
   // context
   const { appSetting } = useContext(MainContext);
+
+  // state
+  const [isEditingNote, setIsEditingNote] = useState(false)
+  const [inputText, setInputText] = useState(note.text)
 
   // func
   const handleRemove = () => {
@@ -24,6 +27,24 @@ export default function NoteBox({ notes, note, onNewList }) {
       }
     });
   };
+
+  const handleDiscard = () => {
+    setIsEditingNote(false)
+    setInputText(note.text)
+  }
+
+  const handleSaveNewNote = () => {
+    fetch(`http://localhost:8000/notes/${note.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ text: inputText })
+    }).then(res => {
+      if (res.ok) {
+        setInputText(prev => prev)
+      }
+    })
+    setIsEditingNote(false)
+  }
+
 
   const handleNoteImportance = () => {
     fetch(
@@ -50,21 +71,34 @@ export default function NoteBox({ notes, note, onNewList }) {
       className={styles.king}
       id={appSetting.theme === "light" ? styles.lightMode : ""}
     >
-      <p>{note.text}</p>
-      <div className={styles.btnsContainer}>
-        <button
-          className={styles.starBtn}
-          id={note.important === "yes" ? styles.checkedStarBtn : ""}
-        >
-          <FontAwesomeIcon icon={faStar} onClick={handleNoteImportance} />
-        </button>
-        <button className={styles.editBtn}>
-          <FontAwesomeIcon icon={faEdit} />
-        </button>
-        <button className={styles.removeBtn} onClick={handleRemove}>
-          <FontAwesomeIcon icon={faXmark} />
-        </button>
-      </div>
+      {isEditingNote ?
+        <textarea autoFocus name="note" id="note" value={inputText} onChange={(e) => { setInputText(e.target.value) }} /> : <p>{inputText}</p>
+      }
+      {isEditingNote ?
+        <div className={styles.saveAndDiscardBtnsContainer}>
+          <button className={styles.saveBtn} onClick={handleSaveNewNote}>
+            save
+          </button>
+          <button className={styles.discardBtn} onClick={handleDiscard}>
+            discard
+          </button>
+        </div>
+        :
+        <div className={styles.btnsContainer}>
+          <button
+            className={styles.starBtn}
+            id={note.important === "yes" ? styles.checkedStarBtn : ""}
+          >
+            <FontAwesomeIcon icon={faStar} onClick={handleNoteImportance} />
+          </button>
+          <button className={styles.editBtn} onClick={() => { setIsEditingNote(true) }}>
+            <FontAwesomeIcon icon={faEdit} />
+          </button>
+          <button className={styles.removeBtn} onClick={handleRemove}>
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
+        </div>
+      }
     </div>
   );
 }

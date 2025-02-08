@@ -10,14 +10,64 @@
   overflow: auto;
   display: flex;
   flex-direction: column;
-  line-height: 25px;
+  padding: 2px;
 
-  p {
+  p,
+  textarea {
+    line-height: 25px;
     text-transform: none;
     padding: 20px;
     overflow: auto;
-    height: 100%;
+    height: calc(100% - 20%);
     text-align: start;
+  }
+
+  textarea {
+    border: 0px;
+    outline: 1px solid rgb(51, 139, 246);
+    border-radius: 30px;
+    color: mainStyle.$darkMode_text_color;
+    background-color: mainStyle.$darkMode_main_bg_color;
+
+    &:focus {
+      outline-width: 2px;
+    }
+  }
+
+  .saveAndDiscardBtnsContainer {
+    display: flex;
+    height: 20%;
+    align-items: center;
+    justify-content: space-evenly;
+
+    button {
+      cursor: pointer;
+      width: 40%;
+      border: 0;
+      border-radius: 5px;
+      padding: 5px;
+      color: mainStyle.$darkMode_text_color;
+    }
+
+    .saveBtn {
+      background-color: mainStyle.$green_accepted_color;
+      &:hover {
+        background-color: rgba(35, 134, 55, 0.835);
+      }
+      &:active {
+        background-color: rgba(35, 134, 55, 0.773);
+      }
+    }
+
+    .discardBtn {
+      background-color: mainStyle.$red_error_color;
+      &:hover {
+        background-color: rgb(204, 6, 6, 0.835);
+      }
+      &:active {
+        background-color: rgb(204, 6, 6, 0.773);
+      }
+    }
   }
 
   .btnsContainer {
@@ -25,14 +75,14 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
-    height: 25%;
+    height: 20%;
 
     button {
       cursor: pointer;
       padding: 5px;
       font-size: 1.3em;
       background-color: rgba(255, 255, 255, 0);
-      transition: 0.1s ease-in-out;
+      transition: opacity 0.1s ease-in-out;
       border: 0;
 
       &:hover {
@@ -64,6 +114,11 @@
 #lightMode {
   color: mainStyle.$lightMode_text_color;
   background-color: mainStyle.$lightMode_main_bg_color;
+
+  textarea {
+    color: mainStyle.$lightMode_text_color;
+    background-color: mainStyle.$lightMode_main_bg_color;
+  }
 
   .btnsContainer {
     .starBtn {

@@ -45,6 +45,8 @@ export default function NotesPage() {
     }
   }
 
+
+
   return (
     <div className={styles.king}>
       {notes.map((note) => (

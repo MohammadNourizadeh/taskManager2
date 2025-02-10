@@ -29,8 +29,8 @@ export default function NoteBox({ notes, note, onNewList }) {
   };
 
   const handleDiscard = () => {
+    fetch(`http://localhost:8000/notes/${note.id}`).then(res => res.json()).then(data => setInputText(data.text))
     setIsEditingNote(false)
-    setInputText(note.text)
   }
 
   const handleSaveNewNote = () => {
@@ -76,7 +76,7 @@ export default function NoteBox({ notes, note, onNewList }) {
       }
       {isEditingNote ?
         <div className={styles.saveAndDiscardBtnsContainer}>
-          <button className={styles.saveBtn} onClick={handleSaveNewNote}>
+          <button className={styles.saveBtn} onClick={() => inputText !== note.text && handleSaveNewNote()} id={inputText === note.text ? styles.disableSaveBtn : styles.activeSaveBtn}>
             save
           </button>
           <button className={styles.discardBtn} onClick={handleDiscard}>

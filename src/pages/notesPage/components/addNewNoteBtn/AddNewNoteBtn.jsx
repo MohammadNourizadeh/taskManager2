@@ -16,7 +16,7 @@ export default function AddNewNoteBtn({ onOpenForm }) {
         onOpenForm(true)
       }}
     >
-      <FontAwesomeIcon icon={faAdd} />
+      <span><FontAwesomeIcon icon={faAdd} /></span>
     </button>
   );
 }

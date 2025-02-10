@@ -2,8 +2,8 @@
 
 .king {
   color: mainStyle.$green_accepted_color;
-  background-color: rgba(35, 134, 55, 0.09);
-  border: 3px solid mainStyle.$green_accepted_color;
+  background-color: rgba(255, 255, 255, 0);
+  border: 5px solid mainStyle.$green_accepted_color;
   border-top: 0;
   border-bottom: 0;
   font-size: 3em;
@@ -12,10 +12,11 @@
   height: 250px;
   cursor: pointer;
   transition: 0.1s ease-in;
+  animation: btnAnimation 1s infinite alternate;
 
   &:hover {
+    animation: 0s none;
     border-radius: 20px;
-    border-width: 5px;
   }
 
   &:active {
@@ -23,9 +24,9 @@
   }
 }
 
-// light mode
-#lightMode {
-  color: mainStyle.$green_accepted_color;
-  background-color: rgba(35, 134, 55, 0.09);
-  border-color: mainStyle.$green_accepted_color;
+@keyframes btnAnimation {
+  100% {
+    color: #23863786;
+    border-color: #23863786;
+  }
 }

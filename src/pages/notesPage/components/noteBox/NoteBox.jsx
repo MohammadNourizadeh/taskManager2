@@ -29,8 +29,8 @@ export default function NoteBox({ notes, note, onNewList }) {
   };
 
   const handleDiscard = () => {
-    fetch(`http://localhost:8000/notes/${note.id}`).then(res => res.json()).then(data => setInputText(data.text))
-    setIsEditingNote(false)
+    setInputText(note.text)
+    setIsEditingNote(false) 
   }
 
   const handleSaveNewNote = () => {
@@ -39,7 +39,12 @@ export default function NoteBox({ notes, note, onNewList }) {
       body: JSON.stringify({ text: inputText })
     }).then(res => {
       if (res.ok) {
-        setInputText(prev => prev)
+        const temp = [...notes]
+        const index = temp.findIndex(item => item.id === note.id)
+        const changedItem = temp[index]
+        changedItem.text = inputText
+        temp[index] = changedItem
+        onNewList(temp)
       }
     })
     setIsEditingNote(false)

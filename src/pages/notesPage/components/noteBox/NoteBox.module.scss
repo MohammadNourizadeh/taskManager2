@@ -8,27 +8,37 @@
   border-radius: 30px;
   width: 250px;
   height: 250px;
-  font-size: 1em;
-  overflow: auto;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 
   p,
   .textareaContainer {
+    height: calc(100% - 20%);
+  }
+
+  p {
+    padding: 12px;
+  }
+
+  p,
+  textarea {
     line-height: 25px;
     text-transform: none;
-    padding: 20px;
     overflow: auto;
-    height: calc(100% - 20%);
     letter-spacing: 0.7px;
-    text-align: start;
   }
 
   .textareaContainer {
+    padding: 2px;
+
     textarea {
+      padding: 10px;
+      height: 100%;
       border: 0px;
-      outline: 11px solid rgb(51, 139, 246);
-      border-radius: 30px;
+      width: 100%;
+      outline: 1px solid rgb(51, 139, 246);
+      border-radius: 25px;
       color: mainStyle.$darkMode_text_color;
       background-color: mainStyle.$darkMode_border_color;
 
@@ -125,14 +135,24 @@
 // light mode
 #lightMode {
   color: mainStyle.$lightMode_text_color;
-  background-color: mainStyle.$lightMode_main_bg_color;
+  background-color: mainStyle.$lightMode_border_color;
+  border: 5px solid mainStyle.$lightMode_main_bg_color;
+  border-top: 0;
 
-  textarea {
-    color: mainStyle.$lightMode_text_color;
+  .textareaContainer {
+    textarea {
+      color: mainStyle.$lightMode_text_color;
+      background-color: mainStyle.$lightMode_border_color;
+    }
+  }
+
+  .saveAndDiscardBtnsContainer {
     background-color: mainStyle.$lightMode_main_bg_color;
   }
 
   .btnsContainer {
+    background-color: mainStyle.$lightMode_main_bg_color;
+
     .starBtn {
       color: mainStyle.$lightMode_border_color;
     }

@@ -6,7 +6,7 @@
   border: 5px solid mainStyle.$darkMode_main_bg_color;
   border-top: 0;
   border-radius: 30px;
-  width: 250px;
+  width: 350px;
   height: 250px;
   overflow: hidden;
   display: flex;
@@ -97,7 +97,7 @@
 
   .btnsContainer {
     justify-content: center;
-    gap: 30px;
+    gap: 35px;
     background-color: mainStyle.$darkMode_main_bg_color;
 
     button {

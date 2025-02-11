@@ -30,7 +30,7 @@ export default function NoteBox({ notes, note, onNewList }) {
 
   const handleDiscard = () => {
     setInputText(note.text)
-    setIsEditingNote(false) 
+    setIsEditingNote(false)
   }
 
   const handleSaveNewNote = () => {
@@ -77,7 +77,11 @@ export default function NoteBox({ notes, note, onNewList }) {
       id={appSetting.theme === "light" ? styles.lightMode : ""}
     >
       {isEditingNote ?
-        <textarea autoFocus name="note" id="note" value={inputText} onChange={(e) => { setInputText(e.target.value) }} /> : <p>{inputText}</p>
+        <div className={styles.textareaContainer}>
+          <textarea autoFocus name="note" id="note" value={inputText} onChange={(e) => { setInputText(e.target.value) }} />
+        </div>
+        :
+        <p>{inputText}</p>
       }
       {isEditingNote ?
         <div className={styles.saveAndDiscardBtnsContainer}>

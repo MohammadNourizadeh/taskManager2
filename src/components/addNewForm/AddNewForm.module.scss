@@ -57,10 +57,6 @@
     }
 
     .textareaContainer {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
       textarea {
         width: 250px;
         height: 150px;
@@ -131,7 +127,6 @@
   form {
     border: 1px solid mainStyle.$lightMode_border_color;
     background-color: mainStyle.$lightMode_main_bg_color;
-
     color: mainStyle.$lightMode_text_color;
 
     div {

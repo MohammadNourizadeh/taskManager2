@@ -48,10 +48,14 @@
     }
   }
 
-  .saveAndDiscardBtnsContainer {
+  .saveAndDiscardBtnsContainer,
+  .btnsContainer {
+    align-items: center;
     display: flex;
     height: 20%;
-    align-items: center;
+  }
+
+  .saveAndDiscardBtnsContainer {
     background-color: mainStyle.$darkMode_main_bg_color;
     justify-content: space-evenly;
 
@@ -92,11 +96,8 @@
   }
 
   .btnsContainer {
-    display: flex;
     justify-content: center;
-    align-items: center;
     gap: 30px;
-    height: 20%;
     background-color: mainStyle.$darkMode_main_bg_color;
 
     button {

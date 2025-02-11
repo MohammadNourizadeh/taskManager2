@@ -11,6 +11,7 @@
   height: 60px;
   text-decoration: none;
   transition: 0.05s ease-in-out;
+  margin: 2px 0px;
   opacity: 0.4;
 
   span {
@@ -21,4 +22,3 @@
 #lightMode {
   color: mainStyle.$lightMode_text_color;
 }
-

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
 import MainContext from '../../contexts/MainContext';
 import styles from './AddNewForm.module.scss';
+import { toast } from 'react-toastify';
 
 export default function AddNewForm({ onClose, onAdd }) {
     // context
@@ -12,7 +13,20 @@ export default function AddNewForm({ onClose, onAdd }) {
     const handelAdd = (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-        onAdd(formData)
+
+        const formDate = new Date(formData.get("taskDate"))
+        formDate.setHours(0, 0, 0, 0)
+
+        const currentDate = new Date()
+        currentDate.setHours(0, 0, 0, 0)
+
+
+        if (formDate.getTime() < currentDate.getTime()) {
+            toast.error("your selected date has expired")
+        } else {
+
+            onAdd(formData)
+        }
     }
 
     return (

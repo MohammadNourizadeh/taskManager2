@@ -16,7 +16,7 @@ export default function HeaderDate() {
     return () => {
       clearInterval(myInterval);
     };
-  });
+  }, []);
 
   return (
     <div className={styles.king}>

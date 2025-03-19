@@ -1,12 +1,37 @@
-import { faMultiply, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faArrowPointer, faArrowRightRotate, faHourglass1, faHourglassEnd, faMultiply, faRepeat, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useId } from "react";
+import { useContext, useEffect, useId, useState } from "react";
 import MainContext from "../../contexts/MainContext";
 import styles from "./Task.module.scss";
 
 export default function Task({ tasks, task, onSetNewList }) {
   // context
   const { selectedItem, appSetting } = useContext(MainContext);
+  const [hourGlass, setHourGlass] = useState(null)
+
+  // side effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const date = new Date()
+      date.setHours(0, 0, 0, 0)
+
+      const taskDate = new Date(task.date)
+      taskDate.setHours(0, 0, 0, 0)
+
+      if (date < taskDate) {
+        setHourGlass('yellow')
+      } else {
+        setHourGlass('red')
+      }
+
+    }, 1000)
+
+    return () => {
+      clearInterval(interval)
+    }
+
+  }, [])
+
 
   // func
   const handleRemoveTask = () => {
@@ -77,7 +102,18 @@ export default function Task({ tasks, task, onSetNewList }) {
       </div>
       <div className={styles.taskInfo}>
         <div className={styles.taskName}>{task.name}</div>
-        <div className={styles.taskDate}>{task.date}</div>
+        <div className={styles.taskDate}>
+          {task.date}
+          {hourGlass ?
+            <span id={hourGlass === 'red' ? styles.redHourGlass : ''}>
+              <FontAwesomeIcon icon={hourGlass === 'yellow' ? faHourglass1 : faHourglassEnd} />
+            </span>
+            :
+            <span className={styles.loadingIcon}>
+              <FontAwesomeIcon icon={faArrowRightRotate} />
+            </span>
+          }
+        </div>
       </div>
       <div className={styles.starAndRemoveBtnIcon}>
         <button

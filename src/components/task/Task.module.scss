@@ -11,7 +11,7 @@
   align-items: center;
   color: mainStyle.$darkMode_text_color;
   gap: 20px;
-  
+
   .checkBoxContainer {
     .myCheck {
       position: relative;
@@ -19,7 +19,7 @@
       width: 30px;
       height: 20px;
     }
-    
+
     .handle {
       border-radius: 5px;
       position: absolute;
@@ -31,7 +31,7 @@
       cursor: pointer;
       transition: 0.5s;
     }
-    
+
     .myCheck input:checked + .handle {
       background-color: #36cf22;
     }
@@ -46,15 +46,15 @@
       background-color: #ffffff;
       transition: 0.5s;
     }
-    
+
     .myCheck input:checked + .handle:before {
       transform: translateX(100%);
     }
   }
-  
+
   .taskInfo {
     user-select: none;
-    
+
     .taskName {
       text-transform: none;
       margin-bottom: 10px;
@@ -64,6 +64,19 @@
     .taskDate {
       font-size: 0.9em;
       color: rgba(255, 255, 255, 0.482);
+
+      span {
+        margin-left: 15px;
+      }
+
+      .loadingIcon {
+        animation: loadingAnimation 0.8s linear infinite;
+        display: inline-block;
+      }
+
+      #redHourGlass {
+        color: mainStyle.$red_error_color;
+      }
     }
   }
 
@@ -160,5 +173,11 @@
 
   #blueStar {
     color: mainStyle.$lightMode_border_color;
+  }
+}
+
+@keyframes loadingAnimation {
+  100% {
+    transform: rotate(1turn);
   }
 }

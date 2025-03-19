@@ -77,6 +77,10 @@
       #redHourGlass {
         color: mainStyle.$red_error_color;
       }
+      #yellowHourGlass {
+        color: yellow;
+        animation: halfHourGlassAnimation 1s alternate infinite;
+      }
     }
   }
 
@@ -179,5 +183,11 @@
 @keyframes loadingAnimation {
   100% {
     transform: rotate(1turn);
+  }
+}
+
+@keyframes halfHourGlassAnimation {
+  100% {
+    color: rgba(255, 255, 0, 0.458);
   }
 }

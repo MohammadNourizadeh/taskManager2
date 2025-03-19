@@ -1,4 +1,4 @@
-import { faArrowPointer, faArrowRightRotate, faHourglass1, faHourglassEnd, faMultiply, faRepeat, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightRotate, faHourglass1, faHourglassEnd, faHourglassHalf, faMultiply, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useId, useState } from "react";
 import MainContext from "../../contexts/MainContext";
@@ -12,17 +12,17 @@ export default function Task({ tasks, task, onSetNewList }) {
   // side effect
   useEffect(() => {
     const interval = setInterval(() => {
-      const date = new Date()
-      date.setHours(0, 0, 0, 0)
+      const date = new Date().setHours(0, 0, 0, 0)
+      const taskDate = new Date(task.date).setHours(0, 0, 0, 0)
 
-      const taskDate = new Date(task.date)
-      taskDate.setHours(0, 0, 0, 0)
-
-      if (date < taskDate) {
+      if (date === taskDate) {
         setHourGlass('yellow')
-      } else {
+      } else if (date > taskDate) {
         setHourGlass('red')
+      } else {
+        setHourGlass('gray')
       }
+
 
     }, 1000)
 
@@ -105,8 +105,8 @@ export default function Task({ tasks, task, onSetNewList }) {
         <div className={styles.taskDate}>
           {task.date}
           {hourGlass ?
-            <span id={hourGlass === 'red' ? styles.redHourGlass : ''}>
-              <FontAwesomeIcon icon={hourGlass === 'yellow' ? faHourglass1 : faHourglassEnd} />
+            <span id={hourGlass === 'red' ? styles.redHourGlass : hourGlass === 'yellow' ? styles.yellowHourGlass : ''}>
+              <FontAwesomeIcon icon={hourGlass === 'yellow' ? faHourglassHalf : hourGlass === 'red' ? faHourglassEnd : faHourglass1} />
             </span>
             :
             <span className={styles.loadingIcon}>
